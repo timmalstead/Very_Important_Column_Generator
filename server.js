@@ -1,22 +1,27 @@
 const express = require("express")
 const app = express()
 const methodOverride = require("method-override")
-// const session = require("express-session")
+const session = require("express-session")
 
 require("./db/db")
 
-//this is where you will set up session
+app.use(session({
+    secret : "it's a secret!",
+    resave : false,
+    saveUninitialized : false
+}))
 
-//this is where you will set a view engine, probably pug
+app.set("view engine", "pug")
 app.use(express.urlencoded({extended:false}))
 app.use(methodOverride("_method"))
 app.use(express.static("public"))
 app.use(express.json())
 
-//this is where you will set up your controllers
+const authController = require("./controllers/authCont")
+app.use("/auth", authController)
 
 app.get("/", (req,res) => {
-    res.send("howdy")
+    res.render("index")
 })
 
 const port = 3000

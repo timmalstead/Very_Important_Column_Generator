@@ -5,19 +5,52 @@ const bcrypt = require("bcryptjs")
 
 router.post("/register", async (req,res) => {
 
-    //takes info from the form, encrypts password and puts into an object
-
     const password = req.body.password
     const passwordHash = bcrypt.hashSync(password, bcrypt.genSaltSync(10))
 
     const registeredUser = {}
     registeredUser.username = req.body.username
     registeredUser.password = passwordHash
-
-    //add the user to the db
+    registeredUser.timesLogged = 1
 
     await Auth.create(registeredUser)
-    res.send("howdy")
+    req.session.username = registeredUser.username
+    req.session.logged = true
+    res.redirect("/articles")
+})
+
+router.post("/login", async (req,res) => {
+    try{
+        const loginUser = await Auth.findOne({username : req.body.username})
+        if (loginUser) {
+            if (bcrypt.compareSync(req.body.password, loginUser.password)) {
+                req.session.username = loginUser.username
+                req.session.logged = true
+                // loginUser.timesLogged = "frank"
+                // loginUser.save()
+                console.log(loginUser)
+                res.render("article")
+            } else {
+                req.session.message = "Username or password is incorrect"
+                res.redirect("/")
+            }
+        } else {
+            req.session.message = "Username or password is incorrect"
+            res.redirect("/")
+        }
+    } catch(err){
+        console.log(err)
+    }
+})
+
+router.get("/logout", (req,res) => {
+    req.session.destroy((err) => {
+        if(err){
+            res.send(err)
+        }else {
+            res.redirect("/")
+        }
+    })
 })
 
 module.exports = router

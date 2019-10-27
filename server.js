@@ -12,16 +12,21 @@ app.use(session({
 }))
 
 app.set("view engine", "pug")
-app.use(express.urlencoded({extended:false}))
+app.use(express.urlencoded({extended:false}))//set this to true to resave?
 app.use(methodOverride("_method"))
 app.use(express.static("public"))
 app.use(express.json())
+
+const articleController = require("./controllers/articleCont")
+app.use("/articles", articleController)
 
 const authController = require("./controllers/authCont")
 app.use("/auth", authController)
 
 app.get("/", (req,res) => {
-    res.render("index")
+    res.render("index", {
+        message : req.session.message
+    })
 })
 
 const port = 3000

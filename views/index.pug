@@ -1,6 +1,13 @@
 include includes/head
 body
+    h3 Register
     form(action="/auth/register" method="POST")
         input(type="text" name="username" placeholder="Username")
         input(type="password" name="password" placeholder="Password")
         button(type="submit") Register
+    message
+    h3 Log In
+    form(action="/auth/login" method="POST")
+        input(type="text" name="username" placeholder="Username")
+        input(type="password" name="password" placeholder="Password")
+        button(type="submit") Log in

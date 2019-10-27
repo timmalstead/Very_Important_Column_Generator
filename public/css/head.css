@@ -49,6 +49,10 @@ nav {
     font-weight: 700;
 }
 
+#loginbutton {
+    width: 7em;
+}
+
 .modalbutton {
     width: 50%;
     margin: auto 0;
@@ -81,4 +85,29 @@ input {
     height: 2em;
     border-radius: 5px;
     outline-color: #999;
+}
+
+#registerfield {
+    position: absolute;
+    top: -10em;
+    transition: all .50s ease-in-out;
+    z-index: 1;
+}
+
+#registerfield.show {
+    top: 3.3em;
+}
+
+#getregisterfield {
+    border: none;
+}
+
+#loginfield {
+    position: absolute;
+    top: -10em;
+    transition: all .50s ease-in-out;
+}
+
+#loginfield.show {
+    top: 3.3em;
 }

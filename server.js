@@ -25,7 +25,7 @@ app.use("/auth", authController)
 
 app.get("/", (req,res) => {
     res.render("index", {
-        message : req.session.message
+        session : req.session
     })
 })
 

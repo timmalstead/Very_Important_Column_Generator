@@ -6,6 +6,7 @@ html(lang="en")
         meta(name="author" content="Timothy Malstead")
         link(rel="icon" type="image/png" sizes="32x32" href="/images/thomas-l-friedman-favicon.png")
         link(rel="stylesheet" href="/css/head.css")
+        script(defer src="/js/head.js")
         title Thomas L. Friedman's Very Important Column Generator
     body
         section.container
@@ -18,13 +19,14 @@ html(lang="en")
                         form(action="/articles")
                             button.headerbutton(type="submit") CREATE COLUMN
                         form(action="")
-                            button.headerbutton LOG IN
-            span.registerboxes
-                form.loginforms(action="/auth/register" method="POST")
+                            button.headerbutton#loginbutton(type="button") LOG IN
+            section.registerboxes
+                form.loginforms#registerfield(action="/auth/register" method="POST")
                     input(type="text" name="username" placeholder="Username")
                     input(type="password" name="password" placeholder="Password")
                     button.headerbutton.modalbutton(type="submit") REGISTER
-                form.loginforms(action="/auth/login" method="POST")
+                form.loginforms#loginfield(action="/auth/login" method="POST")
                     input(type="text" name="username" placeholder="Username")
                     input(type="password" name="password" placeholder="Password")
                     button.headerbutton.modalbutton(type="submit") LOG IN
+                    button#getregisterfield(type="button") Register

@@ -1,11 +1,18 @@
 body {
     margin: 0;
 }
-section {
+.container {
+    position: absolute;
+    top:0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+}
+.navbar {
     width: 100vw;
     background-color: white;
     border-bottom: .1em solid #ebebeb;
-    box-shadow: 0 .05em .2em #ebebeb80;
+    box-shadow: 0 .05em .2em #ebebeb;
     display: flex;
     justify-content: center;
 }
@@ -23,6 +30,15 @@ header {
     margin: .5em;
 }
 
+button {
+    outline: none;
+    cursor: pointer;
+}
+
+nav {
+    display: flex;
+}
+
 .headerbutton {
     background-color: #567b95;
     border: 1em solid #567b95;
@@ -31,4 +47,38 @@ header {
     color: white;
     font-family: Helvetica, Arial, sans-serif;
     font-weight: 700;
+}
+
+.modalbutton {
+    width: 50%;
+    margin: auto 0;
+}
+
+.registerboxes {
+    margin: 0 5em;
+    align-self: flex-end;
+    width:14em;
+}
+
+.loginforms {
+    background-color: white;
+    align-self: flex-end;
+    width:14em;
+    height: 8em;
+    border-width:  0 .1em .1em .1em;
+    border-style: solid;
+    border-color: #ebebeb;
+    box-shadow: 0 .1em .2em #ebebeb;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: .25em;
+}
+
+input {
+    margin: .5em;
+    height: 2em;
+    border-radius: 5px;
+    outline-color: #999;
 }

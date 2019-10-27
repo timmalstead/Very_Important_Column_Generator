@@ -8,11 +8,23 @@ html(lang="en")
         link(rel="stylesheet" href="/css/head.css")
         title Thomas L. Friedman's Very Important Column Generator
     body
-        section
-            header
-                nav
-                    button.headerbutton LIGHT/DARK
-                img.logo(src="/images/NewYorkTim.svg", alt="The New York Tim's")
-                nav
-                    button.headerbutton CREATE COLUMN
-                    button.headerbutton LOG IN
+        section.container
+            section.navbar
+                header
+                    nav
+                        button.headerbutton LIGHT/DARK
+                    img.logo(src="/images/NewYorkTim.svg", alt="The New York Tim's")
+                    nav
+                        form(action="/articles")
+                            button.headerbutton(type="submit") CREATE COLUMN
+                        form(action="")
+                            button.headerbutton LOG IN
+            span.registerboxes
+                form.loginforms(action="/auth/register" method="POST")
+                    input(type="text" name="username" placeholder="Username")
+                    input(type="password" name="password" placeholder="Password")
+                    button.headerbutton.modalbutton(type="submit") REGISTER
+                form.loginforms(action="/auth/login" method="POST")
+                    input(type="text" name="username" placeholder="Username")
+                    input(type="password" name="password" placeholder="Password")
+                    button.headerbutton.modalbutton(type="submit") LOG IN

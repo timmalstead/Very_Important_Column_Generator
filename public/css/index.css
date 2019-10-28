@@ -1,0 +1,50 @@
+main {
+    width: 95%;
+    margin: 4.5rem 0 0 0;
+    /* align-self: center; */
+}
+
+.titleheader {
+    display: grid;
+    width:100%;
+    grid-template-columns: 15% 40% 45%;
+    grid-template-areas: "figure .titles .";
+    color: #333;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    height: 5vh;
+}
+
+figure {
+    transform: scale(.8);
+}
+
+figcaption {
+    font-family: inherit;
+    color: inherit;
+    font-size: 1.5em;
+    font-weight: 300;
+    line-height: 1.5em;
+}
+
+.titles {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+}
+
+h1 {
+    font-family: inherit;
+    font-size: 3vw;
+    font-weight: 200;
+    position: relative;
+    top: .6em;
+}
+
+h3 {
+    color: #999;
+    font-family: inherit;
+    font-size: 1.3vw;
+    font-weight: 100;
+    position: relative;
+    top:-.6em;
+}

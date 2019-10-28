@@ -16,7 +16,7 @@ router.post("/register", async (req,res) => {
     await Auth.create(registeredUser)
     req.session.username = registeredUser.username
     req.session.logged = true
-    res.redirect("/articles")
+    res.redirect("/articles/new")
 })
 
 router.post("/login", async (req,res) => {
@@ -28,8 +28,9 @@ router.post("/login", async (req,res) => {
                 req.session.logged = true
                 // loginUser.timesLogged = "frank"
                 // loginUser.save()
-                console.log(loginUser)
-                res.render("article")
+                // console.log(loginUser)
+                // res.render("articles/articleNew")
+                res.redirect("/articles/new")
             } else {
                 req.session.message = "Username or password is incorrect"
                 res.redirect("/")

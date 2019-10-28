@@ -3,10 +3,24 @@ const router = express.Router()
 const Auth = require("../models/authModel")
 const Foreign = require("../models/foreignModel")
 
+const isLoggedIn = (req, res, next) => {
+    if(req.session.logged) {
+        next()
+    } else {
+        req.session.message = "Username or password is incorrect"
+        res.redirect('/')
+    }
+}
+
+//index route
+
+router.get("/", isLoggedIn, (req,res) => {
+    res.render("articles/articleIndex")
+})
+
 //post route
 
-router.post("/", async (req,res) => {
-    console.log(req.body)
+router.post("/show", async (req,res) => {
     const foreignArticle = {}
     foreignArticle.country = req.body.country
     foreignArticle.unitOfTime = [req.body.unitOfTime, req.body.unitOfTime2]
@@ -18,23 +32,16 @@ router.post("/", async (req,res) => {
     foreignArticle.dayOfTheWeek = req.body.dayOfTheWeek
     foreignArticle.blueCollarOccupation = req.body.blueCollarOccupation
     foreignArticle.quote = req.body.quote
-    const createdArticle = await Foreign.create(foreignArticle)
-    console.log(foreignArticle, createdArticle)
-    res.redirect("/")
+    await Foreign.create(foreignArticle)
+    // console.log(createdArticle)
+    res.render("articles/articleShow", {
+      article : foreignArticle
+    })
 })
-
-const isLoggedIn = (req, res, next) => {
-    if(req.session.logged) {
-        next()
-    } else {
-        req.session.message = "Username or password is incorrect"
-        res.redirect('/')
-    }
-}
 
 //new route
 
-router.get("/new", isLoggedIn, (req,res) => {
+router.get("/new", (req,res) => {
     res.render("articles/articleNew")
 })
 

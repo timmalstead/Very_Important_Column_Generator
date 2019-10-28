@@ -21,7 +21,7 @@ router.post("/register", async (req,res) => {
     await Auth.create(registeredUser)
     req.session.username = registeredUser.username
     req.session.logged = true
-    res.redirect("/articles/new")
+    res.redirect("/articles/")
 })
 
 router.post("/login", async (req,res) => {
@@ -32,7 +32,7 @@ router.post("/login", async (req,res) => {
                 req.session.username = loginUser.username
                 req.session.logged = true
                 req.session.message = ""
-                res.redirect("/articles/new")
+                res.redirect("/articles/")
             } else {
                 req.session.logged = false
                 req.session.message = "Username or password is incorrect"
@@ -47,26 +47,5 @@ router.post("/login", async (req,res) => {
         console.log(err)
     }
 })
-
-// router.get("/check", (req,res) => {
-//     if (req.session.logged) {
-//         res.redirect("/articles/new")
-//     } else {
-//         req.session.message = "Username or password is incorrect"
-//         res.redirect("/")
-//     }
-// })
-
-// router.get("/logout", async (req,res) => {
-//     const destroy = await req.session.destroy((err) => {
-//         console.log("hit")
-//         if(err){
-//             res.send(err)
-//         }else {
-//             // req.session.logged = false
-//             res.redirect("/")
-//         }
-//     })
-// })
 
 module.exports = router

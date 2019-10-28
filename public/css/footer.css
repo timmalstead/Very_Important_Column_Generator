@@ -1,0 +1,9 @@
+footer {
+    display: flex;
+    justify-content: center;
+}
+
+aside {
+    font-style: italic;
+    color: #999
+}

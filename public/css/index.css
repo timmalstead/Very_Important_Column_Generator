@@ -1,7 +1,6 @@
 main {
     width: 95%;
     margin: 4.5rem 0 0 0;
-    /* align-self: center; */
 }
 
 .titleheader {
@@ -16,6 +15,7 @@ main {
 
 figure {
     transform: scale(.8);
+    display: block;
 }
 
 figcaption {
@@ -47,4 +47,37 @@ h3 {
     font-weight: 100;
     position: relative;
     top:-.6em;
+}
+
+.maingrid {
+    width: 92.5%;
+    margin: 0 auto;
+}
+
+.inbetween {
+    margin: 12rem 0 0 0;
+    border-top: .1em solid #333;
+    height: 2.2em;
+    border-bottom: .1em solid #ebebeb;
+}
+
+.tab {
+    border-width: .1em .1em 0 .1em;
+    border-style: solid;
+    border-color: #ebebeb;
+    border-radius: 5px;
+    background-color: white;
+    height: 2.7em;
+    width:8em;
+    position: relative;
+    top:-2.7em;
+    left:1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 -.05em .2em #ebebeb8e;
+}
+
+h4 {
+    font-family: Helvetica, Arial, sans-serif;
 }

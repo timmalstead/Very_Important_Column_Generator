@@ -24,7 +24,9 @@ const authController = require("./controllers/authCont")
 app.use("/auth", authController)
 
 app.get("/", (req,res) => {
-    res.render("index")
+    res.render("index", {
+        session : req.session
+    })
 })
 
 const port = 3000

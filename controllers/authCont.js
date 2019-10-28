@@ -3,6 +3,11 @@ const router = express.Router()
 const Auth = require("../models/authModel")
 const bcrypt = require("bcryptjs")
 
+router.get("/logout", (req,res) => {
+    req.session.destroy()
+    res.redirect("/")      
+})
+
 router.post("/register", async (req,res) => {
 
     const password = req.body.password
@@ -26,16 +31,15 @@ router.post("/login", async (req,res) => {
             if (bcrypt.compareSync(req.body.password, loginUser.password)) {
                 req.session.username = loginUser.username
                 req.session.logged = true
-                // loginUser.timesLogged = "frank"
-                // loginUser.save()
-                // console.log(loginUser)
-                // res.render("articles/articleNew")
+                req.session.message = ""
                 res.redirect("/articles/new")
             } else {
+                req.session.logged = false
                 req.session.message = "Username or password is incorrect"
                 res.redirect("/")
             }
         } else {
+            req.session.logged = false
             req.session.message = "Username or password is incorrect"
             res.redirect("/")
         }
@@ -44,14 +48,25 @@ router.post("/login", async (req,res) => {
     }
 })
 
-router.get("/logout", (req,res) => {
-    req.session.destroy((err) => {
-        if(err){
-            res.send(err)
-        }else {
-            res.redirect("/")
-        }
-    })
-})
+// router.get("/check", (req,res) => {
+//     if (req.session.logged) {
+//         res.redirect("/articles/new")
+//     } else {
+//         req.session.message = "Username or password is incorrect"
+//         res.redirect("/")
+//     }
+// })
+
+// router.get("/logout", async (req,res) => {
+//     const destroy = await req.session.destroy((err) => {
+//         console.log("hit")
+//         if(err){
+//             res.send(err)
+//         }else {
+//             // req.session.logged = false
+//             res.redirect("/")
+//         }
+//     })
+// })
 
 module.exports = router

@@ -23,9 +23,18 @@ router.post("/", async (req,res) => {
     res.redirect("/")
 })
 
+const isLoggedIn = (req, res, next) => {
+    if(req.session.logged) {
+        next()
+    } else {
+        req.session.message = "Username or password is incorrect"
+        res.redirect('/')
+    }
+}
+
 //new route
 
-router.get("/new", (req,res) => {
+router.get("/new", isLoggedIn, (req,res) => {
     res.render("articles/articleNew")
 })
 

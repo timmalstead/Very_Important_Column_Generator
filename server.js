@@ -12,7 +12,7 @@ app.use(session({
 }))
 
 app.set("view engine", "pug")
-app.use(express.urlencoded({extended:false}))//set this to true to resave?
+app.use(express.urlencoded({extended:false}))
 app.use(methodOverride("_method"))
 app.use(express.static("public"))
 app.use(express.json())

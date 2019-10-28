@@ -14,8 +14,11 @@ const isLoggedIn = (req, res, next) => {
 
 //index route
 
-router.get("/", isLoggedIn, (req,res) => {
-    res.render("articles/articleIndex")
+router.get("/", isLoggedIn, async (req,res) => {
+    const user = await Auth.findOne({_id : req.session.userId})
+    res.render("articles/articleIndex", {
+       user
+    })
 })
 
 //post route
@@ -32,8 +35,10 @@ router.post("/show", async (req,res) => {
     foreignArticle.dayOfTheWeek = req.body.dayOfTheWeek
     foreignArticle.blueCollarOccupation = req.body.blueCollarOccupation
     foreignArticle.quote = req.body.quote
-    await Foreign.create(foreignArticle)
-    // console.log(createdArticle)
+    const newArticle = await Foreign.create(foreignArticle)
+    const foundUser = await Auth.findById(req.session.userId)
+    foundUser.articles.push(newArticle._id)
+    foundUser.save()
     res.render("articles/articleShow", {
       article : foreignArticle
     })
@@ -44,5 +49,9 @@ router.post("/show", async (req,res) => {
 router.get("/new", (req,res) => {
     res.render("articles/articleNew")
 })
+
+//show route
+
+
 
 module.exports = router

@@ -17,10 +17,11 @@ router.post("/register", async (req,res) => {
     registeredUser.username = req.body.username
     registeredUser.password = passwordHash
     registeredUser.timesLogged = 1
-
     await Auth.create(registeredUser)
     req.session.username = registeredUser.username
     req.session.logged = true
+    const user = await Auth.findOne({username : registeredUser.username})
+    req.session.userId = user
     res.redirect("/articles/")
 })
 
@@ -32,6 +33,8 @@ router.post("/login", async (req,res) => {
                 req.session.username = loginUser.username
                 req.session.logged = true
                 req.session.message = ""
+                req.session.userId = loginUser._id
+                console.log(req.session.userId)
                 res.redirect("/articles/")
             } else {
                 req.session.logged = false

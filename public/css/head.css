@@ -22,7 +22,12 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
+}
+
+.hamburgermenu {
+    width: 2em;
+    height: 2em;
+    display: none;
 }
 
 .logo {
@@ -47,6 +52,11 @@ nav {
     color: white;
     font-family: Helvetica, Arial, sans-serif;
     font-weight: 700;
+}
+
+.headerbutton:hover {
+    background-color: #326891;
+    border: 1em solid #326891;
 }
 
 #loginbutton {
@@ -80,16 +90,20 @@ nav {
     padding: .25em;
 }
 
-input {
+.forminput {
     margin: .5em;
     height: 2em;
     border-radius: 5px;
     outline-color: #999;
 }
 
+.sidemenu {
+    display: none;
+}
+
 #registerfield {
     position: absolute;
-    top: -10em;
+    top: -20em;
     transition: all .50s ease-in-out;
     z-index: 1;
 }
@@ -104,10 +118,102 @@ input {
 
 #loginfield {
     position: absolute;
-    top: -10em;
+    top: -20em;
     transition: all .50s ease-in-out;
 }
 
 #loginfield.show {
     top: 3.3em;
+}
+
+@media (max-width:800px) {
+    .desktopbuttons {
+        display: none;
+    }
+
+    .hamburgermenu {
+        display: block;
+        margin: 0 0 .7em 0;
+        cursor: pointer;
+    }
+
+    header {
+        justify-content: space-evenly;
+    }
+    .logo {
+        min-height: 3em;
+    }
+    .sidemenu {
+        width:100vw;
+        height: 100vh;
+        position: absolute;
+        top: 4.5rem;
+        left:-60em;
+        display: block;
+        text-align: center;
+        background-color: #ffffff8c;
+        backdrop-filter: blur(.25em);
+        transition: all .50s ease-in-out;
+    }
+
+    .sidemenu.show {
+        left: 0;
+    }
+
+    .headerbutton {
+        background-color: #567b95;
+        border: none;
+        margin: 0 .5em;
+        min-width: 10em;
+        min-height: 3em;
+        font-size: 2em;
+        margin: 3em 0 0 0;
+    }
+
+    .headerbutton:hover {
+        border: none;
+    }
+
+    .registerboxes {
+        align-self: center;
+        display: flex;
+        justify-content: center;
+    }
+
+    .loginforms {
+        background-color: white;
+        width:22em;
+        height: 38em;
+        border: .1em solid #ebebeb;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: .25em;
+        box-shadow: none;
+
+    }
+
+    #loginfield {
+        z-index: 1;
+        top: -100em;
+        transition: all .75s ease-in-out;
+    }
+
+    #registerfield {
+        z-index: 2;
+        top: -100em;
+        transition: all .75s ease-in-out;
+    }
+
+    #getregisterfield {
+        font-size: 2em;
+        margin: 0 0 2em 0;
+    }
+
+    .forminput {
+        margin: 1em 0 0 0;
+        min-width: 5em;
+        font-size: 2em;
+    }
 }

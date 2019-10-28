@@ -12,21 +12,29 @@ html(lang="en")
         section.container
             section.navbar
                 header
-                    nav
-                        button.headerbutton LIGHT/DARK
-                    img.logo(src="/images/NewYorkTim.svg", alt="The New York Tim's")
-                    nav
+                    img.hamburgermenu(src="/images/stackMenu.svg")
+                    nav.desktopbuttons
+                        button.headerbutton.lightdarktoggle LIGHT/DARK
+                    a(href="/")
+                        img.logo(src="/images/NewYorkTim.svg" alt="The New York Tim's")
+                    nav.desktopbuttons
                         form(action="/articles")
                             button.headerbutton(type="submit") CREATE COLUMN
                         form(action="")
                             button.headerbutton#loginbutton(type="button") LOG IN
             section.registerboxes
                 form.loginforms#registerfield(action="/auth/register" method="POST")
-                    input(type="text" name="username" placeholder="Username")
-                    input(type="password" name="password" placeholder="Password")
+                    input.forminput(type="text" name="username" placeholder="Username")
+                    input.forminput(type="password" name="password" placeholder="Password")
                     button.headerbutton.modalbutton(type="submit") REGISTER
                 form.loginforms#loginfield(action="/auth/login" method="POST")
-                    input(type="text" name="username" placeholder="Username")
-                    input(type="password" name="password" placeholder="Password")
+                    input.forminput(type="text" name="username" placeholder="Username")
+                    input.forminput(type="password" name="password" placeholder="Password")
                     button.headerbutton.modalbutton(type="submit") LOG IN
                     button#getregisterfield(type="button") Register
+            section.sidemenu
+                    button.headerbutton.lightdarktoggle LIGHT/DARK
+                    form(action="/articles")
+                        button.headerbutton(type="submit") CREATE COLUMN
+                    form(action="")
+                        button.headerbutton#sideloginbutton(type="button") LOG IN

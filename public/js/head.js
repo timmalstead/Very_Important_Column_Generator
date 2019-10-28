@@ -16,3 +16,16 @@ loginButton.addEventListener("click", function() {
         loginButton.innerText = "LOG IN"
     }
 })
+
+const hamburger = document.querySelector(".hamburgermenu")
+const sideMenu = document.querySelector(".sidemenu")
+
+hamburger.addEventListener("click", function() {
+    sideMenu.classList.toggle("show")
+})
+
+const sideLogin = document.querySelector("#sideloginbutton")
+
+sideLogin.addEventListener("click", function() {
+    login.classList.toggle("show")
+})

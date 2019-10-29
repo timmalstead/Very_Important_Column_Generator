@@ -34,7 +34,7 @@ router.post("/login", async (req,res) => {
                 req.session.logged = true
                 req.session.message = ""
                 req.session.userId = loginUser._id
-                console.log(req.session.userId)
+                // console.log(req.session.userId)
                 res.redirect("/articles/")
             } else {
                 req.session.logged = false

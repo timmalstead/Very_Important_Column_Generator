@@ -3,7 +3,7 @@ const mongoose = require("mongoose")
 const authSchema = new mongoose.Schema ({
     username : String,
     password : String,
-    articles : [{
+    foreignArticles : [{
         type : mongoose.Schema.Types.ObjectId,
         ref : "Foreign"
     }]

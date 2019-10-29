@@ -14,8 +14,10 @@ const isLoggedIn = (req, res, next) => {
 
 //index route
 
+//i guess that when you add more articles, you will just have to pass them in as user variables one by one?
+
 router.get("/", isLoggedIn, async (req,res) => {
-    const user = await Auth.findOne({_id : req.session.userId}).populate("articles")
+    const user = await Auth.findOne({_id : req.session.userId}).populate("foreignArticles ")
     res.render("articles/articleIndex", {
        user
     })
@@ -23,7 +25,7 @@ router.get("/", isLoggedIn, async (req,res) => {
 
 //post route
 
-router.post("/show", async (req,res) => {
+router.post("/foreignarticle", async (req,res) => {
     const foreignArticle = {}
     foreignArticle.country = req.body.country
     foreignArticle.unitOfTime = [req.body.unitOfTime, req.body.unitOfTime2]
@@ -38,9 +40,9 @@ router.post("/show", async (req,res) => {
     foreignArticle.title = req.body.title
     const newArticle = await Foreign.create(foreignArticle)
     const foundUser = await Auth.findById(req.session.userId)
-    foundUser.articles.push(newArticle._id)
+    foundUser.foreignArticles.push(newArticle._id)
     foundUser.save()
-    res.render("articles/articleShow", {
+    res.render("articles/foreignArticleShow", {
       article : foreignArticle
     })
 })
@@ -48,7 +50,7 @@ router.post("/show", async (req,res) => {
 //new route
 
 router.get("/new", (req,res) => {
-    res.render("articles/articleNew")
+    res.render("articles/foreignArticleNew")
 })
 
 //show route

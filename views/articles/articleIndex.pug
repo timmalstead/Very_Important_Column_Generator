@@ -3,8 +3,8 @@ link(rel="stylesheet" href="/css/article.css")
 main
     a(href="/articles/new") New Article
     a(href="/auth/logout") Logout
-    -if (user.articles.length) {
-    -for (let i=0 ;i < user.articles.length; i++) {
-        =user.articles[i].title
+    -if (user.foreignArticles.length) {
+    -for (let i=0 ;i < user.foreignArticles.length; i++) {
+        =user.foreignArticles[i].title
     -} }
     include ../includes/footer

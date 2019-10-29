@@ -53,6 +53,15 @@ router.get("/new", (req,res) => {
     res.render("articles/foreignArticleNew")
 })
 
+// router.get("/new", (req,res) => {
+//     const random = Math.floor(Math.random() * 2)
+//     if (random === 0) {
+//         res.render("articles/foreignArticleNew")
+//     } else {
+//         res.send("RANDOM!")
+//     }
+// })
+
 //show route
 
 

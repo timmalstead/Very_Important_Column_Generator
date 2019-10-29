@@ -1,0 +1,11 @@
+include ../includes/head
+link(rel="stylesheet" href="/css/article.css")
+main
+    a(href="/auth/logout") Logout
+    h3=`You wanna change your info ${foundUser.username}? I got you dawg.`
+    form(action="/auth/put?_method=PUT" method="POST")
+        input(type="text" name="username" placeholder="New Username")
+        input(type="text" name="oldPassword" placeholder="Old Password")
+        input(type="text" name="newPassword" placeholder="New Password")
+        button(type="submit") Change Info
+    include ../includes/footer

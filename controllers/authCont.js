@@ -1,6 +1,7 @@
 const express = require("express")
 const router = express.Router()
 const Auth = require("../models/authModel")
+const Foreign = require("../models/foreignModel")
 const bcrypt = require("bcryptjs")
 
 //logout route
@@ -87,6 +88,18 @@ router.put("/put", async (req,res) => {
     } else {
         res.redirect("/auth/edituser")
     }
+})
+
+//delete user route
+
+//i guess that as i add more articles, i will have to take them out with separate lines of code? maybe there is a way to make that more dry
+
+router.delete("/delete", async (req,res) => {
+    const userToBeDeleted = await Auth.findById(req.session.userId)
+    const deletedArticles = await Foreign.deleteMany({_id : {$in : userToBeDeleted.foreignArticles}})
+    const deletedUser = await Auth.findByIdAndRemove(req.session.userId)
+    req.session.destroy()
+    res.redirect("/")
 })
 
 module.exports = router

@@ -1,7 +1,8 @@
 include ../includes/head
 link(rel="stylesheet" href="/css/article.css")
 main
-    a(href="/auth/logout") Logout
+    nav.functionlinks
+        a(href="/auth/logout") Logout
     form(action="/auth/delete?_method=DELETE" method="POST")
         button(type="submit") Delete User
     h3=`You wanna change your info ${foundUser.username}? I got you dawg.`

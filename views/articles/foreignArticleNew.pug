@@ -1,6 +1,8 @@
 include ../includes/head
 link(rel="stylesheet" href="/css/article.css")
 main
+    nav.functionlinks
+        a(href="/auth/logout") Logout
     form(action="/articles/foreignarticle" method="POST")
         input(type="text" name="country" placeholder="Name of Country")
         input(type="text" name="unitOfTime" placeholder="Unit of Time")
@@ -34,5 +36,4 @@ main
         input(type="text" name="quote" placeholder="Inspirational Quote")
         input(type="text" name="title" placeholder="Title of Article")
         button(type="submit") Test
-    a(href="/auth/logout") Logout
     include ../includes/footer

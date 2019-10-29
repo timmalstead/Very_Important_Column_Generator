@@ -1,9 +1,10 @@
 include ../includes/head
 link(rel="stylesheet" href="/css/article.css")
 main
-    a(href="/articles/new") New Article
-    a(href="/auth/logout") Logout
-    a(href="/auth/edituser") Edit User
+    nav.functionlinks
+        a(href="/articles/new") New Article
+        a(href="/auth/logout") Logout
+        a(href="/auth/edituser") Edit User Info
     -if (user.foreignArticles.length) {
     -for (let i=0 ;i < user.foreignArticles.length; i++) {
         h1=user.foreignArticles[i].title

@@ -15,7 +15,7 @@ const isLoggedIn = (req, res, next) => {
 //index route
 
 router.get("/", isLoggedIn, async (req,res) => {
-    const user = await Auth.findOne({_id : req.session.userId})
+    const user = await Auth.findOne({_id : req.session.userId}).populate("articles")
     res.render("articles/articleIndex", {
        user
     })
@@ -35,6 +35,7 @@ router.post("/show", async (req,res) => {
     foreignArticle.dayOfTheWeek = req.body.dayOfTheWeek
     foreignArticle.blueCollarOccupation = req.body.blueCollarOccupation
     foreignArticle.quote = req.body.quote
+    foreignArticle.title = req.body.title
     const newArticle = await Foreign.create(foreignArticle)
     const foundUser = await Auth.findById(req.session.userId)
     foundUser.articles.push(newArticle._id)

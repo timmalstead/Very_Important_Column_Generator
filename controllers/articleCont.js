@@ -17,7 +17,8 @@ const isLoggedIn = (req, res, next) => {
 //i guess that when you add more articles, you will just have to pass them in as user variables one by one?
 
 router.get("/", isLoggedIn, async (req,res) => {
-    const user = await Auth.findOne({_id : req.session.userId}).populate("foreignArticles ")
+    const user = await Auth.findOne({_id : req.session.userId}).populate("foreignArticles")
+    // console.log(user)
     res.render("articles/articleIndex", {
        user
     })
@@ -64,6 +65,41 @@ router.get("/new", (req,res) => {
 
 //show route
 
+router.get("/:id", async (req,res) => {
+    const findUser = await Auth.findOne({"foreignArticles" : req.params.id}).populate({path: "foreignArticles", match : {_id: req.params.id}})
+    const article = findUser.foreignArticles[0]
+    res.render("articles/foreignArticleShow", {
+        article
+      })
+})
 
+//edit route
+
+router.get("/:id/edit", async (req,res) => {
+    const article = await Foreign.findById(req.params.id)
+    console.log("hitting")
+    res.render("articles/foreignArticleEdit", {
+        article
+    })
+})
+
+//put edit
+
+router.put("/:id", async (req,res) => {
+    const updatedArticle = await Foreign.findByIdAndUpdate(req.params.id, req.body)
+    console.log(updatedArticle)
+    res.redirect("/articles")
+})
+
+//delete route
+
+router.delete("/:id", async (req,res) => {
+    const removePhoto = await Foreign.findByIdAndRemove(req.params.id)
+    const removeFromUserArray = await Auth.findOne({"foreignArticles" : req.params.id})
+    const removePicFromArray = await removeFromUserArray.foreignArticles.remove(req.params.id)
+    const saveUpdatedAuthArray = await removeFromUserArray.save()
+    console.log(removePhoto,removeFromUserArray,removePicFromArray,saveUpdatedAuthArray)
+    res.redirect("/articles")
+})
 
 module.exports = router

@@ -3,10 +3,12 @@ main {
     margin: 4.5rem 0 0 0;
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
 .functionlinks {
     align-self: center;
+    /* justify-self: flex-start; */
 }
 
 a {
@@ -14,4 +16,10 @@ a {
     color: #999;
     text-decoration: none;
     margin: 0 .5em;
+}
+
+.publishedarticle {
+    border : 1px solid black;
+    margin: .8em 0;
+    padding: 0 .5em;
 }

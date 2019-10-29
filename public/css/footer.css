@@ -1,6 +1,8 @@
 footer {
-    display: flex;
+    display: block;
     justify-content: center;
+    align-self: center;
+    flex-direction: column;
 }
 
 aside {

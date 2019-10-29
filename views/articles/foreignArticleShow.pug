@@ -3,6 +3,7 @@ link(rel="stylesheet" href="/css/article.css")
 main
     nav.functionlinks
         a(href="/auth/logout") Logout
+        a(href=`/articles/${article._id}/edit`) Edit Article
     h1=`${article.title}`
 
     p=`Last week’s events in ${article.country} were truly historic, although we may not know for a ${article.unitOfTime[0]}or even a ${article.unitOfTime[1]} what their final meaning is. What’s important, however, is that we focus on what ${article.nouns[0]} means to the average ${article.nouns[1]}. Even if the ${article.adjectives[0]} media seems too caught up in ${article.verbs[0]}ing the overall situation to pay attention to the important effects on daily life. After all, everyone knows ${article.importantFigure} never ${article.verbs[1]}s on a ${article.dayOfTheWeek}.`

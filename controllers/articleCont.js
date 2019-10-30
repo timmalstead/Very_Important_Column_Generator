@@ -80,7 +80,6 @@ router.get("/:id", async (req,res) => {
 
 router.get("/:id/edit", async (req,res) => {
     const article = await Foreign.findById(req.params.id)
-    console.log("hitting")
     res.render("articles/foreignArticleEdit", {
         article
     })
@@ -90,7 +89,7 @@ router.get("/:id/edit", async (req,res) => {
 
 router.put("/:id", async (req,res) => {
     const updatedArticle = await Foreign.findByIdAndUpdate(req.params.id, req.body)
-    console.log(updatedArticle)
+    // console.log(updatedArticle)
     res.redirect("/articles")
 })
 
@@ -101,7 +100,7 @@ router.delete("/:id", async (req,res) => {
     const removeFromUserArray = await Auth.findOne({"foreignArticles" : req.params.id})
     const removePicFromArray = await removeFromUserArray.foreignArticles.remove(req.params.id)
     const saveUpdatedAuthArray = await removeFromUserArray.save()
-    console.log(removePhoto,removeFromUserArray,removePicFromArray,saveUpdatedAuthArray)
+    // console.log(removePhoto,removeFromUserArray,removePicFromArray,saveUpdatedAuthArray)
     res.redirect("/articles")
 })
 

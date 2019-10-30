@@ -143,3 +143,27 @@ p {
       width: 80%;
   }
 }
+
+@media (max-width: 1300px) {
+    .userArticles {
+    grid-template-columns: auto auto 15% 15%;
+    }
+}
+
+@media (max-width: 1000px) {
+    .userArticles {
+    grid-template-columns: auto auto 17% 17%;
+    }
+}
+
+@media (max-width: 900px) {
+    .userArticles {
+    grid-template-columns: auto auto 21% 21%;
+    }
+}
+
+@media (max-width: 750px) {
+    .userArticles {
+    grid-template-columns: auto auto 25% 25%;
+    }
+}

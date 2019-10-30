@@ -48,7 +48,8 @@ main {
     justify-content: inherit;
     flex-grow: 1;
     display: grid;
-    /* need this? */
+    grid-template-columns: auto auto 12% 12%;
+    box-shadow: -.2vw .3vh 2px #999;
 }
 
 a {
@@ -63,6 +64,7 @@ h1 {
     font-weight: 500;
     font-family: Georgia, 'Times New Roman', Times, serif;
     color: #333;
+    /* margin: 0 0 -.005em 0; */
 }
 
 h3 {
@@ -74,22 +76,54 @@ h3 {
     grid-area: bottombutton;
 }
 
-.publishedarticle {
+/* .publishedarticle {
     border : 1px solid black;
     margin: .8em 0;
     padding: 0 .5em;
-}
+} */
 
 article {
     width:50%;
     align-self: center;
     color: #333;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    /* font-weight: 200; */
     font-size:1.3em;
+    /* display: flex; */
+    /* margin: 5em 0 0 0; */
+    /* font-weight: 200; */
     /* height: 5vh; */
+    display: inherit;
+    flex-direction: inherit;
 }
 
 p {
     text-indent: 3em;
+}
+
+.mainarticle {
+    position: relative;
+    top:1em;
+}
+
+.articletitle {
+    align-self: center;
+}
+
+.formflex {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.articleIndexButton {
+    height: initial;
+}
+
+.newArticleTag {
+    color: #999;
+}
+
+#initialArticle {
+    display: flex;
+    justify-content: center;
 }

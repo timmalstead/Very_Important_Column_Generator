@@ -9,11 +9,14 @@ main
     -for (let i=0 ;i < user.foreignArticles.length; i++) {
         section.userArticles
             a(href=`/articles/${user.foreignArticles[i]._id}`)
-                div.publishedarticle
-                    h1=user.foreignArticles[i].title
-            form(action=`/articles/${user.foreignArticles[i]._id}?_method=DELETE` method="POST")
-                button(type="submit") Delete Article
-            form(action=`/articles/${user.foreignArticles[i]._id}`)
-                button(type="submit") Show Article 
-    -} }
+                h1=user.foreignArticles[i].title
+            form.formflex(action=`/articles/${user.foreignArticles[i]._id}`)
+                button.articleIndexButton(type="submit") VIEW ARTICLE 
+            form.formflex(action=`/articles/${user.foreignArticles[i]._id}?_method=DELETE` method="POST")
+                button.articleIndexButton(type="submit") DELETE ARTICLE
+    -} } else {
+        section.userArticles#initialArticle
+            a(href="/articles/new")
+                h1.newArticleTag Click to Create First Article
+    -}
     include ../includes/footer

@@ -1,5 +1,12 @@
 .articleHeader {
-    transform: scale(.8);;
+    display: grid;
+    width:100%;
+    grid-template-columns: 35% 65%;
+    grid-template-areas: "figure .titles";
+    color: #333;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    height: 5vh;
+    margin: -2em 0 5em 0;
 }
 
 .author {

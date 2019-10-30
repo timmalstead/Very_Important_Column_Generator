@@ -6,7 +6,7 @@ const session = require("express-session")
 require("./db/db")
 
 app.use(session({
-    secret : "it's a secret!",
+    secret : "q$Kr!E50$2C7",
     resave : false,
     saveUninitialized : false
 }))

@@ -1,14 +1,14 @@
 include ../includes/head
-link(rel="stylesheet" href="/css/article.css")
+link(rel="stylesheet" href="/css/siteOpsAndForeign.css")
 main
     nav.functionlinks
         a(href="/auth/logout") Logout
-    form(action="/auth/delete?_method=DELETE" method="POST")
-        button(type="submit") Delete User
-    h3=`You wanna change your info ${foundUser.username}? I got you dawg.`
-    form(action="/auth/put?_method=PUT" method="POST")
+    h3=`Change ${foundUser.username}'s User Info`
+    form.centerform(action="/auth/put?_method=PUT" method="POST")
         input(type="text" name="username" placeholder="New Username")
         input(type="text" name="oldPassword" placeholder="Old Password")
-        input(type="text" name="newPassword" placeholder="New Password")
-        button(type="submit") Change Info
+        input(type="password" name="newPassword" placeholder="New Password")
+        button#changeInfo(type="submit") CHANGE INFO
+    form.centerform(action="/auth/delete?_method=DELETE" method="POST")
+            button#delete(type="submit") DELETE USER
     include ../includes/footer

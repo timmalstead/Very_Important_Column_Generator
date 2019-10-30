@@ -41,13 +41,6 @@ header {
 button {
     outline: none;
     cursor: pointer;
-}
-
-nav {
-    display: flex;
-}
-
-.headerbutton {
     background-color: #567b95;
     border: 1em solid #567b95;
     border-radius: 5px;
@@ -57,9 +50,13 @@ nav {
     font-weight: 700;
 }
 
-.headerbutton:hover {
+button:hover {
     background-color: #326891;
     border: 1em solid #326891;
+}
+
+nav {
+    display: flex;
 }
 
 #loginbutton {
@@ -93,7 +90,7 @@ nav {
     padding: .25em;
 }
 
-.forminput {
+input {
     margin: .5em;
     height: 2em;
     border-radius: 5px;
@@ -117,6 +114,7 @@ nav {
 
 #getregisterfield {
     border: none;
+    margin: .3em 0 0 0;
 }
 
 #loginfield {

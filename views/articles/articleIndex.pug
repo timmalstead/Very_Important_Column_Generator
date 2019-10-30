@@ -1,5 +1,5 @@
 include ../includes/head
-link(rel="stylesheet" href="/css/article.css")
+link(rel="stylesheet" href="/css/siteOpsAndForeign.css")
 main
     nav.functionlinks
         a(href="/articles/new") New Article
@@ -7,12 +7,13 @@ main
         a(href="/auth/edituser") Edit User Info
     -if (user.foreignArticles.length) {
     -for (let i=0 ;i < user.foreignArticles.length; i++) {
-        a(href=`/articles/${user.foreignArticles[i]._id}`)
-            div.publishedarticle
-                h1=user.foreignArticles[i].title
-        form(action=`/articles/${user.foreignArticles[i]._id}?_method=DELETE` method="POST")
-            button(type="submit") Delete Article
-        form(action=`/articles/${user.foreignArticles[i]._id}`)
-            button(type="submit") Show Article 
+        section.userArticles
+            a(href=`/articles/${user.foreignArticles[i]._id}`)
+                div.publishedarticle
+                    h1=user.foreignArticles[i].title
+            form(action=`/articles/${user.foreignArticles[i]._id}?_method=DELETE` method="POST")
+                button(type="submit") Delete Article
+            form(action=`/articles/${user.foreignArticles[i]._id}`)
+                button(type="submit") Show Article 
     -} }
     include ../includes/footer

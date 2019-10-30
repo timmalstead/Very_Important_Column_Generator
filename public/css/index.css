@@ -1,6 +1,8 @@
 main {
     width: 95%;
     margin: 4.5rem 0 0 0;
+    display: flex;
+    flex-flow: column wrap;
 }
 
 .titleheader {
@@ -49,7 +51,7 @@ h3 {
     top:-.6em;
 }
 
-.maingrid {
+.indica, .maingrid {
     width: 92.5%;
     margin: 0 auto;
 }
@@ -80,4 +82,8 @@ h3 {
 
 h4 {
     font-family: Helvetica, Arial, sans-serif;
+}
+
+.maingrid {
+    flex-grow: 1;
 }

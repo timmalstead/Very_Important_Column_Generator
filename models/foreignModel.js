@@ -4,7 +4,7 @@ const foreignArticle = new mongoose.Schema({
     title : String,
     country : String,
     unitOfTime : [String],//2
-    nouns : [String],//9
+    nouns : [String],//8
     adjectives : [String],//6
     verbs : [String],//7
     importantFigure : String,

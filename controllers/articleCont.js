@@ -27,6 +27,7 @@ router.get("/", isLoggedIn, async (req,res) => {
 //post route
 
 router.post("/foreignarticle", async (req,res) => {
+    user = req.session
     const foreignArticle = {}
     foreignArticle.country = req.body.country
     foreignArticle.unitOfTime = [req.body.unitOfTime, req.body.unitOfTime2]
@@ -44,7 +45,8 @@ router.post("/foreignarticle", async (req,res) => {
     foundUser.foreignArticles.push(newArticle._id)
     foundUser.save()
     res.render("articles/foreignArticleShow", {
-      article : foreignArticle
+      article : foreignArticle,
+      user
     })
 })
 
@@ -69,7 +71,8 @@ router.get("/:id", async (req,res) => {
     const findUser = await Auth.findOne({"foreignArticles" : req.params.id}).populate({path: "foreignArticles", match : {_id: req.params.id}})
     const article = findUser.foreignArticles[0]
     res.render("articles/foreignArticleShow", {
-        article
+        article,
+        user : req.session
       })
 })
 

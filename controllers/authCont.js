@@ -65,19 +65,26 @@ router.post("/login", async (req,res) => {
 
 //edit user route
 
-router.get("/edituser", async (req,res) =>{
-    const foundUser = await Auth.findById(req.session.userId)
+// router.get("/edituser", async (req,res) =>{
+//     const foundUser = await Auth.findById(req.session.userId)
+//     res.render("auth/authEdit", {
+//         foundUser
+//     })
+// })
+
+router.get("/edituser", (req,res) =>{
     res.render("auth/authEdit", {
-        foundUser
+        foundUser : req.session
     })
 })
 
-//edit user put route
+
+//user put route
 
 router.put("/put", async (req,res) => {
     const updatedUser = await Auth.findById(req.session.userId)
-
-    if (bcrypt.compareSync(req.body.oldPassword, updatedUser.password)) {
+    if (bcrypt.compareSync(req.body.oldPassword, updatedUser.password) && req.body.username && req.body.newPassword) {
+        
         const password = req.body.newPassword
         const passwordHash = bcrypt.hashSync(password, bcrypt.genSaltSync(10))
 

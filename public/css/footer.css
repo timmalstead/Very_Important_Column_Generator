@@ -1,11 +1,13 @@
 footer {
-    display: block;
+    /* display: block; */
+    display: flex;
     justify-content: center;
-    align-self: center;
-    flex-direction: column;
+    /* align-self: center; */
+    /* flex-direction: column; */
 }
 
 aside {
     font-style: italic;
-    color: #999
+    color: #999;
+    margin: 1em 0;
 }

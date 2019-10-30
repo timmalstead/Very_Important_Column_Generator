@@ -46,3 +46,22 @@ const sideLogin = document.querySelector("#sideloginbutton")
 sideLogin.addEventListener("click", function() {
     login.classList.toggle("show")
 })
+
+const lightDark = document.querySelectorAll(".lightdarktoggle")
+const tom = document.querySelector(".tom")
+
+lightDark.forEach(btn => {
+    btn.addEventListener("click", function() {
+        document.documentElement.classList.toggle("inverted")
+        document.body.classList.toggle("dark")
+        tom.classList.toggle("inverted")
+    })
+})
+
+//the above is an example of using a for each loop to iterate over the node list (like an array) returned from queryselectorall. With this, it attaches it to each button with the .lightdarktoggle class
+
+// lightDark.addEventListener("click", function() {
+//     document.documentElement.classList.toggle("inverted")
+//     document.body.classList.toggle("dark")
+//     tom.classList.toggle("inverted")
+// })

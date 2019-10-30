@@ -5,7 +5,7 @@ main
         a(href="/auth/logout") Logout
         a(href=`/articles/${article._id}/edit`) Edit Article
     
-    article
+    article.articlewrapper
         h1.articletitle=`${article.title}`
         include ../includes/articleHeader
         main.mainarticle

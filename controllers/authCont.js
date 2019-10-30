@@ -89,6 +89,7 @@ router.put("/put", async (req,res) => {
         const passwordHash = bcrypt.hashSync(password, bcrypt.genSaltSync(10))
 
         updatedUser.username = req.body.username
+        req.session.username = updatedUser.username
         updatedUser.password = passwordHash
         updatedUser.save()
         res.redirect("/articles/")

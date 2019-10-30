@@ -7,6 +7,7 @@ Link to use ===>
 Designed and developed by Timothy Malstead
 timmalstead@gmail.com
 
-NEED TO DO MEDIA QUERIES FOR ARTICLE PAGE, ARTICLE INDEX PAGE AND SPLASH PAGE
 
-MEDIA QUERIES, MORE ARTICLES, LIGHT/DARK AND RANDOM WORD JS. THE REST, LIKE A SHARING API, IS GRAVY.
+MORE ARTICLES, AND RANDOM WORD JS. THE REST, LIKE A SHARING API, IS GRAVY.
+
+issues: mobile sized hamburger buttons are acting weird, edit user title doesn't reflect new name after username is changed, but it is changing it in the database

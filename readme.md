@@ -15,7 +15,7 @@ The Very Important Thomas Friedman Column Generator is a full stack web applicat
 
 #### Site Usage
 
-above: splash page
+![Screen Shot 2019-10-31 at 9 17 54 AM](https://user-images.githubusercontent.com/54044142/67966952-06556e00-fbc2-11e9-8964-6f37206a9885.png)
 
 1)The user arrives at the splash page, which explains the premise of the site. Site navigation is controlled through the navbar at the top of the screen and though links below it that will appear or disappear depending on context.
 

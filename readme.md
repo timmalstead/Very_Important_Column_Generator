@@ -7,7 +7,34 @@ Link to use ===>
 Designed and developed by Timothy Malstead
 timmalstead@gmail.com
 
+#### The Literary Sage of our Age needs your help!!
 
-MORE ARTICLES, AND RANDOM WORD JS AND THE README. THE REST, LIKE A SHARING API, IS GRAVY.
+Thomas Friedman lived a little too well last night and needs your help to finish his column before deadline. He already has a (brilliant) outline and needs you to supply several nouns, verbs, adjectives and proper phrases.
 
-issues: mobile sized hamburger buttons are acting weird
+The Very Important Thomas Friedman Column Generator is a full stack web application with full CRUD (Create, Read, Update, Destroy) functionality, secure log in and password capabilities and a clean, responsive and intuitive interface. Created in the mold of the classic game madlibs, TVITFCG is sure to provide hours of knowing chuckles for the entire cultured family.
+
+#### Site Usage
+
+
+
+#### Technologies Used
+
+#### Known Issues
+
+On smaller viewports, when the mobile sized menu is activated and the registration field is called, sometimes multiple clicks of the hamburger menu are needed to clear the menu.
+
+#### Next Steps
+
+1)Add additional articles for users to help Tom with.
+
+2)Add a social function to share your work with the public
+
+#### Special Thanks
+
+Thanks to all my fellow students in SEI CC 5 for all the encouragement, opinions and help.
+
+Thanks to my instructors Michael Christenson, Michael Siller and James Haff for all the help, explaning middleware to me...repeatedly and for pushing me to improve my ideas.
+
+Thanks to Aaron Ryder for help with the light and dark mode toggle and to Ben Gomez for inspiring my random words function.
+
+Finally, thanks to you for taking the time to read this and to use my site. If you like my work or have a suggestion for how I can improve it, please drop me a line.

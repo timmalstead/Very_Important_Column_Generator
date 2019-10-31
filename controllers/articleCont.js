@@ -14,11 +14,8 @@ const isLoggedIn = (req, res, next) => {
 
 //index route
 
-//i guess that when you add more articles, you will just have to pass them in as user variables one by one?
-
 router.get("/", isLoggedIn, async (req,res) => {
     const user = await Auth.findOne({_id : req.session.userId}).populate("foreignArticles")
-    // console.log(user)
     res.render("articles/articleIndex", {
        user
     })
@@ -51,22 +48,13 @@ router.post("/foreignarticle", async (req,res) => {
     })
 })
 
-//add a boolean to the user.session on the post route that will disable the edit link in the show route, and then set it false when you call it from the other show page. also, you need to style the edit page
-
 //new route
 
 router.get("/new", (req,res) => {
     res.render("articles/foreignArticleNew")
 })
 
-// router.get("/new", (req,res) => {
-//     const random = Math.floor(Math.random() * 2)
-//     if (random === 0) {
-//         res.render("articles/foreignArticleNew")
-//     } else {
-//         res.send("RANDOM!")
-//     }
-// })
+//random route?
 
 //show route
 
@@ -94,7 +82,6 @@ router.get("/:id/edit", async (req,res) => {
 
 router.put("/:id", async (req,res) => {
     const updatedArticle = await Foreign.findByIdAndUpdate(req.params.id, req.body)
-    // console.log(updatedArticle)
     res.redirect("/articles")
 })
 
@@ -105,7 +92,6 @@ router.delete("/:id", async (req,res) => {
     const removeFromUserArray = await Auth.findOne({"foreignArticles" : req.params.id})
     const removePicFromArray = await removeFromUserArray.foreignArticles.remove(req.params.id)
     const saveUpdatedAuthArray = await removeFromUserArray.save()
-    // console.log(removePhoto,removeFromUserArray,removePicFromArray,saveUpdatedAuthArray)
     res.redirect("/articles")
 })
 

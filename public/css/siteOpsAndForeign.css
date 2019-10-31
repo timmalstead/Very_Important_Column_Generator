@@ -69,7 +69,6 @@ h1 {
     font-weight: 500;
     font-family: Georgia, 'Times New Roman', Times, serif;
     color: #333;
-    /* margin: 0 0 -.005em 0; */
 }
 
 h3 {
@@ -81,22 +80,12 @@ h3 {
     grid-area: bottombutton;
 }
 
-/* .publishedarticle {
-    border : 1px solid black;
-    margin: .8em 0;
-    padding: 0 .5em;
-} */
-
 article {
     width:50%;
     align-self: center;
     color: #333;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size:1.3em;
-    /* display: flex; */
-    /* margin: 5em 0 0 0; */
-    /* font-weight: 200; */
-    /* height: 5vh; */
     display: inherit;
     flex-direction: inherit;
 }
@@ -106,8 +95,6 @@ p {
 }
 
 .mainarticle {
-    /* position: relative;
-    top:1em; */
     margin:5em 0 0 0;
 }
 

@@ -65,13 +65,6 @@ router.post("/login", async (req,res) => {
 
 //edit user route
 
-// router.get("/edituser", async (req,res) =>{
-//     const foundUser = await Auth.findById(req.session.userId)
-//     res.render("auth/authEdit", {
-//         foundUser
-//     })
-// })
-
 router.get("/edituser", (req,res) =>{
     res.render("auth/authEdit", {
         foundUser : req.session

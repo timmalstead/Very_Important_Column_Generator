@@ -8,8 +8,6 @@ getRegisterField.addEventListener("click", function() {
 const login = document.querySelector("#loginfield")
 const loginButton = document.querySelector("#loginbutton")
 
-// const showClass = document.getElementsByClassName('.show').length >= 2
-
 loginButton.addEventListener("click", function() {
     const classNumber = document.getElementsByClassName("show")
     if (classNumber.length < 2) {
@@ -57,11 +55,3 @@ lightDark.forEach(btn => {
         tom.classList.toggle("inverted")
     })
 })
-
-//the above is an example of using a for each loop to iterate over the node list (like an array) returned from queryselectorall. With this, it attaches it to each button with the .lightdarktoggle class
-
-// lightDark.addEventListener("click", function() {
-//     document.documentElement.classList.toggle("inverted")
-//     document.body.classList.toggle("dark")
-//     tom.classList.toggle("inverted")
-// })

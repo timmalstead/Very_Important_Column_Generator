@@ -54,8 +54,6 @@ router.get("/new", (req,res) => {
     res.render("articles/foreignArticleNew")
 })
 
-//random route?
-
 //show route
 
 router.get("/:id", async (req,res) => {

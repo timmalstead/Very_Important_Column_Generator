@@ -9,15 +9,15 @@ main
         div.titles
             h1 Thomas L. Friedman
             -const randomByline = Math.floor(Math.random() * 4)
-            -if (randomByline === 0) {
-            h3 Virile, brilliant and correct in all things.
-            -} else if (randomByline === 1) {
-            h3 Men want to be him, women and children also want to be him.
-            -} else if (randomByline === 2) {
-            h3 Our greatest natural resource.
-            -} else {
-            h3 Not just an opinion column, the correct opinion column.
-            -}
+            case randomByline
+                when 0
+                    h3 Virile, brilliant and correct in all things.
+                when 1
+                    h3 Men want to be him, women and children also want to be him.
+                when 2
+                    h3 Our greatest natural resource.
+                default
+                    h3 Not just an opinion column, the correct opinion column.
     section.indica
         section.inbetween
         div.tab

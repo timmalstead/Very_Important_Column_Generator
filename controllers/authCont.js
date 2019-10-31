@@ -71,7 +71,6 @@ router.get("/edituser", (req,res) =>{
     })
 })
 
-
 //user put route
 
 router.put("/put", async (req,res) => {
@@ -92,8 +91,6 @@ router.put("/put", async (req,res) => {
 })
 
 //delete user route
-
-//i guess that as i add more articles, i will have to take them out with separate lines of code? maybe there is a way to make that more dry
 
 router.delete("/delete", async (req,res) => {
     const userToBeDeleted = await Auth.findById(req.session.userId)

@@ -52,6 +52,7 @@ sideLogin.addEventListener("click", function() {
 
 const lightDark = document.querySelectorAll(".lightdarktoggle")
 const tom = document.querySelector(".tom")
+const buttons = document.querySelectorAll("button")
 
 function assignLightDark() {
     document.documentElement.classList.toggle("inverted")

@@ -15,9 +15,9 @@ The Very Important Thomas Friedman Column Generator is a full stack web applicat
 
 #### Site Usage
 
+![Screen Shot 2019-10-30 at 8 49 11 PM](https://user-images.githubusercontent.com/54044142/67919582-30754480-fb5e-11e9-861c-fb2981ed95cd.png)
 
-
-
+![Screen Shot 2019-10-30 at 8 50 57 PM](https://user-images.githubusercontent.com/54044142/67919605-47b43200-fb5e-11e9-8e6c-3dd1434529f8.png)
 
 #### Technologies Used
 

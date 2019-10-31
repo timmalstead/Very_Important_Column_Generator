@@ -28,11 +28,11 @@ main
         input(type="text" name="verb5" placeholder="Verb" value=`${article.verbs[4]}`)
         input(type="text" name="verb6" placeholder="Verb" value=`${article.verbs[5]}`)
         input(type="text" name="verb7" placeholder="Verb" value=`${article.verbs[6]}`)
-        input(type="text" name="importantFigure" placeholder="Celebrity/World Figure" value=`${article.importantFigure}`)
-        input(type="text" name="abstractConcept" placeholder="Abstract Concept" value=`${article.abstractConcept}`)
+        input(type="text" name="importantFigure" placeholder="Celebrity/World Figure" value=`${article.importantFigure}` required)
+        input(type="text" name="abstractConcept" placeholder="Abstract Concept" value=`${article.abstractConcept}` required)
         input(type="text" name="dayOfTheWeek" placeholder="Day of the Week" value=`${article.dayOfTheWeek}`)
-        input(type="text" name="blueCollarOccupation" placeholder="Member of a Blue Collar Occupation" value=`${article.blueCollarOccupation}`)
-        input(type="text" name="quote" placeholder="Inspirational Quote" value=`${article.quote}`)
-        input(type="text" name="title" placeholder="Title of Article" value=`${article.title}`)
+        input(type="text" name="blueCollarOccupation" placeholder="Member of a Blue Collar Occupation" value=`${article.blueCollarOccupation}` required)
+        input(type="text" name="quote" placeholder="Inspirational Quote" value=`${article.quote}` required)
+        input(type="text" name="title" placeholder="Title of Article" value=`${article.title}` required)
         button.bottombutton(type="submit") CREATE NEW ARTICLE
     include ../includes/footer

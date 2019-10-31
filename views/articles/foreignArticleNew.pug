@@ -29,11 +29,11 @@ main
         input.verb(type="text" name="verb5" placeholder="Verb")
         input.verb(type="text" name="verb6" placeholder="Verb")
         input.verb(type="text" name="verb7" placeholder="Verb")
-        input(type="text" name="importantFigure" placeholder="Celebrity/World Figure")
-        input(type="text" name="abstractConcept" placeholder="Abstract Concept")
+        input(type="text" name="importantFigure" placeholder="Celebrity/World Figure" required)
+        input(type="text" name="abstractConcept" placeholder="Abstract Concept" required)
         input#dayOfTheWeek(type="text" name="dayOfTheWeek" placeholder="Day of the Week")
-        input(type="text" name="blueCollarOccupation" placeholder="Member of a Blue Collar Occupation")
-        input(type="text" name="quote" placeholder="Inspirational Quote")
-        input(type="text" name="title" placeholder="Title of Article")
+        input(type="text" name="blueCollarOccupation" placeholder="Member of a Blue Collar Occupation" required)
+        input(type="text" name="quote" placeholder="Inspirational Quote" required)
+        input(type="text" name="title" placeholder="Title of Article" required)
         button.bottombutton(type="submit") CREATE NEW ARTICLE
     include ../includes/footer

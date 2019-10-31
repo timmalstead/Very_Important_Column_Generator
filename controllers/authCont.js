@@ -31,7 +31,7 @@ router.post("/register", async (req,res) => {
         res.redirect("/articles/")
     } else {
         req.session.logged = false
-        req.session.message = "Username or password is incorrect"
+        req.session.message = "Username and Password are required."
         res.redirect("/")
     }
 })
@@ -86,6 +86,7 @@ router.put("/put", async (req,res) => {
         updatedUser.save()
         res.redirect("/articles/")
     } else {
+        req.session.message = "Fields are empty or passwords is incorrect."
         res.redirect("/auth/edituser")
     }
 })

@@ -45,28 +45,30 @@ sideLogin.addEventListener("click", function() {
     login.classList.toggle("show")
 })
 
-// const lightDark = document.querySelectorAll(".lightdarktoggle")
-// const tom = document.querySelector(".tom")
-
-// lightDark.forEach(btn => {
-//     btn.addEventListener("click", function() {
-//         document.documentElement.classList.toggle("inverted")
-//         document.body.classList.toggle("dark")
-//         tom.classList.toggle("inverted")
-//     })
-// })
-
 const lightDark = document.querySelectorAll(".lightdarktoggle")
 const tom = document.querySelector(".tom")
 
 function assignLightDark() {
     document.documentElement.classList.toggle("inverted")
     document.body.classList.toggle("dark")
-    tom.classList.toggle("inverted")
+    if (tom) {
+        tom.classList.toggle("inverted")
+    }
+    if (document.documentElement.classList.value === "inverted") {
+        window.localStorage.setItem("mode", "dark")
+    } else {
+        window.localStorage.setItem("mode", "light")
+    }
 }
 
 lightDark.forEach(btn => {
     btn.addEventListener("click", function() {
         assignLightDark()
     })
+})
+
+window.addEventListener("load", () => {
+    if (window.localStorage.mode === "dark") {
+        assignLightDark()
+    }
 })

@@ -17,6 +17,8 @@ The Very Important Thomas Friedman Column Generator is a full stack web applicat
 
 
 
+
+
 #### Technologies Used
 
 #### Known Issues

@@ -56,7 +56,7 @@ On smaller viewports, when the mobile sized menu is activated and the registrati
 
 Thanks to all my fellow students in SEI CC 5 for all the encouragement, opinions and help.
 
-Thanks to my instructors Michael Christenson, Michael Siller and James Haff for all the help, explaning middleware to me...repeatedly and for pushing me to improve my ideas.
+Thanks to my instructors Michael Christenson, Michael Siller and James Haff for all the help, explaining middleware to me...repeatedly and for pushing me to improve my ideas.
 
 Thanks to Aaron Ryder for help with the light and dark mode toggle and to Ben Gomez for inspiring my random words function.
 

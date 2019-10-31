@@ -3,7 +3,9 @@ link(rel="stylesheet" href="/css/siteOpsAndForeign.css")
 main
     nav.functionlinks
         a(href="/auth/logout") Logout
-        a(href=`/articles/${article._id}/edit`) Edit Article
+        -if (user.isFirstDraft === false) {
+            a(href=`/articles/${article._id}/edit`) Edit Article
+        -}
     
     article.articlewrapper
         h1.articletitle=`${article.title}`

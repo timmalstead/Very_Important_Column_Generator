@@ -27,6 +27,7 @@ router.get("/", isLoggedIn, async (req,res) => {
 //post route
 
 router.post("/foreignarticle", async (req,res) => {
+    req.session.isFirstDraft = true
     user = req.session
     const foreignArticle = {}
     foreignArticle.country = req.body.country
@@ -50,6 +51,8 @@ router.post("/foreignarticle", async (req,res) => {
     })
 })
 
+//add a boolean to the user.session on the post route that will disable the edit link in the show route, and then set it false when you call it from the other show page. also, you need to style the edit page
+
 //new route
 
 router.get("/new", (req,res) => {
@@ -70,9 +73,11 @@ router.get("/new", (req,res) => {
 router.get("/:id", async (req,res) => {
     const findUser = await Auth.findOne({"foreignArticles" : req.params.id}).populate({path: "foreignArticles", match : {_id: req.params.id}})
     const article = findUser.foreignArticles[0]
+    req.session.isFirstDraft = false
+    user = req.session
     res.render("articles/foreignArticleShow", {
         article,
-        user : req.session
+        user
       })
 })
 

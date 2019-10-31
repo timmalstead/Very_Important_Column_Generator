@@ -3,7 +3,7 @@ link(rel="stylesheet" href="/css/siteOpsAndForeign.css")
 main
     nav.functionlinks
         a(href="/auth/logout") Logout
-    form(action=`/articles/${article._id}?_method=PUT` method="POST")
+    form.newarticleform(action=`/articles/${article._id}?_method=PUT` method="POST")
         input(type="text" name="country" placeholder="Name of Country" value=`${article.country}`)
         input(type="text" name="unitOfTime" placeholder="Unit of Time" value=`${article.unitOfTime[0]}`)
         input(type="text" name="unitOfTime2" placeholder="Larger Unit of Time" value=`${article.unitOfTime[1]}`)
@@ -34,5 +34,5 @@ main
         input(type="text" name="blueCollarOccupation" placeholder="Member of a Blue Collar Occupation" value=`${article.blueCollarOccupation}`)
         input(type="text" name="quote" placeholder="Inspirational Quote" value=`${article.quote}`)
         input(type="text" name="title" placeholder="Title of Article" value=`${article.title}`)
-        button(type="submit") Test
+        button.bottombutton(type="submit") CREATE NEW ARTICLE
     include ../includes/footer

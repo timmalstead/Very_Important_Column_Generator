@@ -24,14 +24,14 @@ html(lang="en")
                             button.headerbutton#loginbutton(type="button") LOG IN
             section.registerboxes
                 form.loginforms#registerfield(action="/auth/register" method="POST")
-                    input.forminput(type="text" name="username" placeholder="Username")
+                    input.forminput#registerInput(type="text" name="username" placeholder="Username")
                     input.forminput(type="password" name="password" placeholder="Password")
                     button.headerbutton.modalbutton(type="submit") REGISTER
                 form.loginforms#loginfield(action="/auth/login" method="POST")
-                    input.forminput(type="text" name="username" placeholder="Username")
+                    input.forminput#loginInput(type="text" name="username" placeholder="Username")
                     input.forminput(type="password" name="password" placeholder="Password")
                     button.headerbutton.modalbutton(type="submit") LOG IN
-                    button#getregisterfield(type="button") Register
+                    button#getregisterfield(type="button") REGISTER
             section.sidemenu
                     button.headerbutton.lightdarktoggle LIGHT/DARK
                     form(action="/articles/")

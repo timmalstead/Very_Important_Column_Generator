@@ -4,7 +4,7 @@ main
     nav.functionlinks
         a(href="/auth/logout") Logout
     form.newarticleform(action=`/articles/${article._id}?_method=PUT` method="POST")
-        input(type="text" name="country" placeholder="Name of Country" value=`${article.country}`)
+        input#countryId(type="text" name="country" placeholder="Name of Country" value=`${article.country}`)
         input(type="text" name="unitOfTime" placeholder="Unit of Time" value=`${article.unitOfTime[0]}`)
         input(type="text" name="unitOfTime2" placeholder="Larger Unit of Time" value=`${article.unitOfTime[1]}`)
         input(type="text" name="noun" placeholder="Noun" value=`${article.nouns[0]}`)

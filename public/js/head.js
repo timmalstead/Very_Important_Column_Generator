@@ -1,12 +1,15 @@
 const register = document.querySelector("#registerfield")
 const getRegisterField = document.querySelector("#getregisterfield")
+const registerInput = document.querySelector("#registerInput")
 
 getRegisterField.addEventListener("click", function() {
     register.classList.toggle("show")
+    registerInput.focus()
 })
 
 const login = document.querySelector("#loginfield")
 const loginButton = document.querySelector("#loginbutton")
+const loginField = document.querySelector("#loginInput")
 
 loginButton.addEventListener("click", function() {
     const classNumber = document.getElementsByClassName("show")
@@ -22,6 +25,7 @@ loginButton.addEventListener("click", function() {
             classNumber[i].classList.remove("show")
         }
     }
+    loginField.focus()
 })
 
 const hamburger = document.querySelector(".hamburgermenu")
@@ -43,6 +47,7 @@ const sideLogin = document.querySelector("#sideloginbutton")
 
 sideLogin.addEventListener("click", function() {
     login.classList.toggle("show")
+    loginField.focus()
 })
 
 const lightDark = document.querySelectorAll(".lightdarktoggle")
@@ -70,5 +75,16 @@ lightDark.forEach(btn => {
 window.addEventListener("load", () => {
     if (window.localStorage.mode === "dark") {
         assignLightDark()
+    }
+})
+
+const countryInput = document.querySelector("#countryId")
+const changeNameInput = document.querySelector("#changeName")
+
+window.addEventListener("load", function() {
+    if (countryInput) {
+        countryInput.focus()
+    } else if (changeNameInput) {
+        changeNameInput.focus()
     }
 })

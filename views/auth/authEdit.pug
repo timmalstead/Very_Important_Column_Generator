@@ -5,7 +5,7 @@ main
         a(href="/auth/logout") Logout
     h3=`Change ${foundUser.username}'s User Info`
     form.centerform(action="/auth/put?_method=PUT" method="POST")
-        input(type="text" name="username" placeholder="New Username")
+        input#changeName(type="text" name="username" placeholder="New Username")
         input(type="text" name="oldPassword" placeholder="Old Password")
         input(type="password" name="newPassword" placeholder="New Password")
         button#changeInfo(type="submit") CHANGE INFO

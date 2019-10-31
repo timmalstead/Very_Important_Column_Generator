@@ -8,7 +8,16 @@ main
             img.tom(src="/images/thomas-l-friedman-thumbLarge.png" alt="Tom Himself")
         div.titles
             h1 Thomas L. Friedman
+            -const randomByline = Math.floor(Math.random() * 4)
+            -if (randomByline === 0) {
             h3 Virile, brilliant and correct in all things.
+            -} else if (randomByline === 1) {
+            h3 Men want to be him, women and children also want to be him.
+            -} else if (randomByline === 2) {
+            h3 Our greatest natural resource.
+            -} else {
+            h3 Not just an opinion column, the correct opinion column.
+            -}
     section.indica
         section.inbetween
         div.tab

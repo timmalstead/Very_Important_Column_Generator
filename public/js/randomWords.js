@@ -27,42 +27,49 @@ const verbForm = document.querySelectorAll(".verb")
 const dayForm = document.querySelector("#dayOfTheWeek")
 
 bottomButton.addEventListener("click", () => {
-
-    if (countryId.value === "") {
-        const randomCountry = Math.floor(Math.random() * countryList.length)
-        countryId.value = countryList[randomCountry]
-    }
+    
     
     for (let i = 0; i < nouns.length; i++) {
         if (nouns[i].value === "") {
-        const randomNoun = Math.floor(Math.random() * nounList.length)
-        nouns[i].value = nounList[randomNoun]
+            const randomNoun = Math.floor(Math.random() * nounList.length)
+            nouns[i].value = nounList[randomNoun]
         }
     }
-
-    for (let i = 0; i < timeUnit.length; i++) {
-        if (timeUnit[i].value === "") {
-        const randomUnitOfTime = Math.floor(Math.random() * unitsOfTime.length)
-        timeUnit[i].value = unitsOfTime[randomUnitOfTime]
-        }
-    }
-
+    
     for (let i = 0; i < adjectiveForm.length; i++) {
         if (adjectiveForm[i].value === "") {
             const randomAdjective = Math.floor(Math.random() * adjectiveList.length)
             adjectiveForm[i].value = adjectiveList[randomAdjective]
         }
     }
-
+    
     for (let i = 0; i < verbForm.length; i++) {
         if (verbForm[i].value === "") {
             const randomVerb = Math.floor(Math.random() * verbList.length)
             verbForm[i].value = verbList[randomVerb]
         }
     }
-
-    if (dayForm.value === "") {
-        const randomDay = Math.floor(Math.random() * daysOfTheWeek.length)
-        dayForm.value = daysOfTheWeek[randomDay]
+    if (timeUnit) {
+        for (let i = 0; i < timeUnit.length; i++) {
+            if (timeUnit[i].value === "") {
+                const randomUnitOfTime = Math.floor(Math.random() * unitsOfTime.length)
+                timeUnit[i].value = unitsOfTime[randomUnitOfTime]
+            }
+        }
     }
+    
+    if (countryId) {
+        if (countryId.value === "") {
+            const randomCountry = Math.floor(Math.random() * countryList.length)
+            countryId.value = countryList[randomCountry]
+        }
+    }
+    
+    if (dayForm) {
+        if (dayForm.value === "") {
+            const randomDay = Math.floor(Math.random() * daysOfTheWeek.length)
+            dayForm.value = daysOfTheWeek[randomDay]
+        }
+    }
+
 })

@@ -1,0 +1,27 @@
+include ../includes/head
+link(rel="stylesheet" href="/css/siteOpsAndArticles.css")
+main
+    nav.functionlinks
+        a(href="/auth/logout") Logout
+        -if (!user.isFirstDraft) {
+            a(href=`/articles/${article._id}/edit`) Edit Article
+        -}
+    
+    article.articlewrapper
+        h1.articletitle=`${article.title}`
+        include ../includes/articleHeader
+        main.mainarticle
+
+            p=`The future of our ${article.adjectives[0]} union may depend on the leaders of the ${article.politicalParty[0]} Party and the ${article.politicalParty[1]} Party  having a sit down and doing some good old fashioned horse trading; Tip O'Neill and ${article.importantFigure[0]} style. If they don't, I do not feel I'm being hyperbolic by saying complete and total ${article.nouns[0]} could well result. If they do, however, our fair nation could embark on a period of ${article.nouns[1]} and ${article.nouns[2]} such as it has never known. Unfortunately, one problem keeps this meeting of the minds from occurring. Namely, that you can't count on a ${article.nouns[3]} to ${article.verbs[0]} when there's a ${article.nouns[4]} in town.`
+
+            p=`Like many of you, my first thought was: Why wouldn't ${article.nouns[3]} simply ${article.verbs[1]} with a ${article.nouns[5]} instead of wasting precious ${article.nouns[6]} with a ${article.adjectives[1]} ${article.nouns[4]}? Am I even sure that's really the case? Of course I'm sure, I'm Thomas Friedman. My second thought was that this all must be some kind of ${article.nouns[7]}. How can I tell? Again, I'm Thomas ${article.verbs[2]}ing Friedman`
+
+            p=`In the case of the ${article.politicalParty[0]} Party, the impediment to resolving the problem with ${article.nouns[3]} is the same as its always been: too many ${article.nouns[8]} and not enough ${article.nouns[9]}. I set up a squash game with ${article.importantFigure[1]}, former ${article.nouns[10]} of the ${article.politicalParty[0]} Party and current director of the ${article.verbs[3]} Institute to try and determine why this was the case.`
+
+            p=`After a few rounds and a few tastes of my patented "${article.adjectives[2]} Friedman" serve, ${article.importantFigure[1]} opined on what he felt was the problem with his former employers. "Tom, my boy" he said in his inimitable collegial yet not overly familiar way, "The problem with the ${article.politicalParty[0]} Party is the same as it's always been: those ${article.adjectives[3]} ${article.verbs[4]}ing ${article.nouns[11]}!" While shocking to hear at the time, I know that any ${article.nouns[12]} with the standing of ${article.importantFigure[1]} would not say such a thing lightly.`
+
+            p=`With that mystery solved, I set out to understand the ${article.adjectives[4]} problems vexing the ${article.politicalParty[1]} Party. Unfortunately, as of press time, ${article.politicalParty[1]} leaders have not seen fit to return my many calls, letters, e-mails, tweets and smoke signals.`
+
+            p=`Hey, ${article.politicalParty[1]} Party leaders! For the good of our ${article.adjectives[0]} nation, let's get together and try to work this out. We'll have a few ${article.nouns[13]}s, maybe do a little ${article.verbs[5]}ing and work this out; Tip O'Neill and ${article.importantFigure[0]} style.`
+
+    include ../includes/footer

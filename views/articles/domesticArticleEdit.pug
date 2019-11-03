@@ -1,0 +1,38 @@
+include ../includes/head
+link(rel="stylesheet" href="/css/siteOpsAndArticles.css")
+main
+    nav.functionlinks
+        a(href="/auth/logout") Logout
+    form.newarticleform(action="/articles/domesticarticle" method="POST")
+        input.noun#firstNoun(type="text" name="noun" placeholder="Noun" value=`${article.nouns[0]}`)
+        input.noun(type="text" name="noun2" placeholder="Noun" value=`${article.nouns[1]}`)
+        input.noun(type="text" name="noun3" placeholder="Noun" value=`${article.nouns[2]}`)
+        input.noun(type="text" name="noun4" placeholder="Noun" value=`${article.nouns[3]}`)
+        input.noun(type="text" name="noun5" placeholder="Noun" value=`${article.nouns[4]}`)
+        input.noun(type="text" name="noun6" placeholder="Noun" value=`${article.nouns[5]}`)
+        input.noun(type="text" name="noun7" placeholder="Noun" value=`${article.nouns[6]}`)
+        input.noun(type="text" name="noun8" placeholder="Noun" value=`${article.nouns[7]}`)
+        input.noun(type="text" name="noun9" placeholder="Noun" value=`${article.nouns[8]}`)
+        input.noun(type="text" name="noun10" placeholder="Noun" value=`${article.nouns[9]}`)
+        input.noun(type="text" name="noun11" placeholder="Noun" value=`${article.nouns[10]}`)
+        input.noun(type="text" name="noun12" placeholder="Noun" value=`${article.nouns[11]}`)
+        input.noun(type="text" name="noun13" placeholder="Noun" value=`${article.nouns[12]}`)
+        input.noun(type="text" name="noun14" placeholder="Noun" value=`${article.nouns[13]}`)
+        input.adjective(type="text" name="adjective" placeholder="Adjective" value=`${article.adjectives[0]}`)
+        input.adjective(type="text" name="adjective2" placeholder="Adjective" value=`${article.adjectives[1]}`)
+        input.adjective(type="text" name="adjective3" placeholder="Adjective" value=`${article.adjectives[2]}`)
+        input.adjective(type="text" name="adjective4" placeholder="Adjective" value=`${article.adjectives[3]}`)
+        input.adjective(type="text" name="adjective5" placeholder="Adjective" value=`${article.adjectives[4]}`)
+        input.verb(type="text" name="verb" placeholder="Verb" value=`${article.verbs[0]}`)
+        input.verb(type="text" name="verb2" placeholder="Verb" value=`${article.verbs[1]}`)
+        input.verb(type="text" name="verb3" placeholder="Verb" value=`${article.verbs[2]}`)
+        input.verb(type="text" name="verb4" placeholder="Verb" value=`${article.verbs[3]}`)
+        input.verb(type="text" name="verb5" placeholder="Verb" value=`${article.verbs[4]}`)
+        input.verb(type="text" name="verb6" placeholder="Verb" value=`${article.verbs[5]}`)
+        input(type="text" name="importantFigure" placeholder="Celebrity/World Figure" value=`${article.importantFigure[0]}` required)
+        input(type="text" name="importantFigure2" placeholder="Celebrity/World Figure" value=`${article.importantFigure[1]}` required)
+        input(type="text" name="politicalParty" placeholder="Political Party" value=`${article.politicalParty[0]}` required)
+        input(type="text" name="politicalParty2" placeholder="Political Party" value=`${article.politicalParty[1]}` required)
+        input(type="text" name="title" placeholder="Title of Article" value=`${article.title}` required)
+        button.bottombutton(type="submit") EDIT ARTICLE
+    include ../includes/footer

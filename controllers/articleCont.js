@@ -116,9 +116,16 @@ router.get("/domestic/:id", async (req,res) => {
 
 //edit route
 
-router.get("/:id/edit", async (req,res) => {
+router.get("/foreign/:id/edit", async (req,res) => {
     const article = await Foreign.findById(req.params.id)
     res.render("articles/foreignArticleEdit", {
+        article
+    })
+})
+
+router.get("/domestic/:id/edit", async (req,res) => {
+    const article = await Domestic.findById(req.params.id)
+    res.render("articles/domesticArticleEdit", {
         article
     })
 })

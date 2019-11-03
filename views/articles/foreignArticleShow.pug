@@ -4,7 +4,7 @@ main
     nav.functionlinks
         a(href="/auth/logout") Logout
         -if (!user.isFirstDraft) {
-            a(href=`/articles/${article._id}/edit`) Edit Article
+            a(href=`/articles/foreign/${article._id}/edit`) Edit Article
         -}
     
     article.articlewrapper

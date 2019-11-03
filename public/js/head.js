@@ -81,11 +81,14 @@ window.addEventListener("load", () => {
 
 const countryInput = document.querySelector("#countryId")
 const changeNameInput = document.querySelector("#changeName")
+const firstNounInput = document.querySelector("#firstNoun")
 
 window.addEventListener("load", function() {
     if (countryInput) {
         countryInput.focus()
     } else if (changeNameInput) {
         changeNameInput.focus()
+    } else if (firstNounInput) {
+        firstNounInput.focus()
     }
 })

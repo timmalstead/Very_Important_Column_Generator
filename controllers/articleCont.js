@@ -172,7 +172,17 @@ router.get("/domestic/:id/edit", async (req,res) => {
     })
 })
 
+router.get("/values/:id/edit", async (req,res) => {
+    const article = await Values.findById(req.params.id)
+    req.session.articleType = "values"
+    res.render("articles/valuesArticleEdit", {
+        article
+    })
+})
+
 //put edit route
+
+//values article show route is the last one to do. construct new pug file and triple check all the other parts.
 
 router.put("/:id", async (req,res) => {
     const updatedArticle = await Foreign.findByIdAndUpdate(req.params.id, req.body) || await Domestic.findByIdAndUpdate(req.params.id, req.body)
@@ -182,9 +192,11 @@ router.put("/:id", async (req,res) => {
 //delete route
 
 router.delete("/:id", async (req,res) => {
-    const removeArticles = await Foreign.findByIdAndRemove(req.params.id) || await Domestic.findByIdAndRemove(req.params.id)
-    const removeFromUserArray = await Auth.findOne({"foreignArticles" : req.params.id}) || await Auth.findOne({"domesticArticles" : req.params.id})
-    const removeArticleFromArray = await removeFromUserArray.foreignArticles.remove(req.params.id) || await removeFromUserArray.domesticArticles.remove(req.params.id)
+    const removeArticles = await Foreign.findByIdAndRemove(req.params.id) || await Domestic.findByIdAndRemove(req.params.id) || await Values.findByIdAndRemove(req.params.id)
+    const removeFromUserArray = await Auth.findOne({"foreignArticles" : req.params.id}) || await Auth.findOne({"domesticArticles" : req.params.id}) || await Auth.findOne({"valuesArticles" : req.params.id})
+    await removeFromUserArray.foreignArticles.remove(req.params.id)
+    await removeFromUserArray.domesticArticles.remove(req.params.id)
+    await removeFromUserArray.valuesArticles.remove(req.params.id)
     const saveUpdatedAuthArray = await removeFromUserArray.save()
     res.redirect("/articles")
 })

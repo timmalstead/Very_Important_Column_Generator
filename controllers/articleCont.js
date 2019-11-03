@@ -182,10 +182,8 @@ router.get("/values/:id/edit", async (req,res) => {
 
 //put edit route
 
-//values article show route is the last one to do. construct new pug file and triple check all the other parts.
-
 router.put("/:id", async (req,res) => {
-    const updatedArticle = await Foreign.findByIdAndUpdate(req.params.id, req.body) || await Domestic.findByIdAndUpdate(req.params.id, req.body)
+    const updatedArticle = await Foreign.findByIdAndUpdate(req.params.id, req.body) || await Domestic.findByIdAndUpdate(req.params.id, req.body) || await Values.findByIdAndUpdate(req.params.id, req.body)
     res.redirect("/articles")
 })
 

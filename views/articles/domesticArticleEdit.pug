@@ -3,7 +3,7 @@ link(rel="stylesheet" href="/css/siteOpsAndArticles.css")
 main
     nav.functionlinks
         a(href="/auth/logout") Logout
-    form.newarticleform(action="/articles/domesticarticle" method="POST")
+    form.newarticleform(action=`/articles/${article._id}?_method=PUT` method="POST")
         input.noun#firstNoun(type="text" name="noun" placeholder="Noun" value=`${article.nouns[0]}`)
         input.noun(type="text" name="noun2" placeholder="Noun" value=`${article.nouns[1]}`)
         input.noun(type="text" name="noun3" placeholder="Noun" value=`${article.nouns[2]}`)

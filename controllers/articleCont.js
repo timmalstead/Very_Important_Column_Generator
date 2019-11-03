@@ -114,10 +114,11 @@ router.get("/domestic/:id", async (req,res) => {
       })
 })
 
-//edit route
+//edit routes
 
 router.get("/foreign/:id/edit", async (req,res) => {
     const article = await Foreign.findById(req.params.id)
+    req.session.articleType = "foreign"
     res.render("articles/foreignArticleEdit", {
         article
     })
@@ -125,15 +126,20 @@ router.get("/foreign/:id/edit", async (req,res) => {
 
 router.get("/domestic/:id/edit", async (req,res) => {
     const article = await Domestic.findById(req.params.id)
+    req.session.articleType = "domestic"
     res.render("articles/domesticArticleEdit", {
         article
     })
 })
 
-//put edit
+//put edit route
 
 router.put("/:id", async (req,res) => {
-    const updatedArticle = await Foreign.findByIdAndUpdate(req.params.id, req.body)
+    if (req.session.articleType === "foreign") {
+        const updatedForeignArticle = await Foreign.findByIdAndUpdate(req.params.id, req.body)
+    } else if (req.session.articleType === "domestic") {
+        const updatedDomesticArticle = await Domestic.findByIdAndUpdate(req.params.id, req.body)
+    }
     res.redirect("/articles")
 })
 

@@ -135,11 +135,7 @@ router.get("/domestic/:id/edit", async (req,res) => {
 //put edit route
 
 router.put("/:id", async (req,res) => {
-    if (req.session.articleType === "foreign") {
-        const updatedForeignArticle = await Foreign.findByIdAndUpdate(req.params.id, req.body)
-    } else if (req.session.articleType === "domestic") {
-        const updatedDomesticArticle = await Domestic.findByIdAndUpdate(req.params.id, req.body)
-    }
+    const updatedArticle = await Foreign.findByIdAndUpdate(req.params.id, req.body) || await Domestic.findByIdAndUpdate(req.params.id, req.body)
     res.redirect("/articles")
 })
 

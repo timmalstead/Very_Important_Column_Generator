@@ -1,6 +1,7 @@
 const mongoose = require("mongoose")
 
 const foreignArticle = new mongoose.Schema({
+    isForeign : Boolean,
     title : String,
     country : String,
     unitOfTime : [String],//2

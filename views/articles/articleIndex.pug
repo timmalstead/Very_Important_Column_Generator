@@ -5,14 +5,19 @@ main
         a(href="/articles/new") New Article
         a(href="/auth/logout") Logout
         a(href="/auth/edituser") Edit User Info
-    -if (user.foreignArticles.length) {
-    -for (let i=0 ;i < user.foreignArticles.length; i++) {
+    -if (user.totalArticles.length) {
+    -for (let i=0 ;i < user.totalArticles.length; i++) {
         section.userArticles
-            a(href=`/articles/${user.foreignArticles[i]._id}`)
-                h1=user.foreignArticles[i].title
-            form.formflex(action=`/articles/${user.foreignArticles[i]._id}`)
-                button.articleIndexButton(type="submit") VIEW ARTICLE 
-            form.formflex(action=`/articles/${user.foreignArticles[i]._id}?_method=DELETE` method="POST")
+            a(href=`/articles/${user.totalArticles[i]._id}`)
+                h1=user.totalArticles[i].title
+            -if (user.totalArticles[i].isForeign) {
+                form.formflex(action=`/articles/foreign/${user.totalArticles[i]._id}`)
+                    button.articleIndexButton(type="submit") VIEW ARTICLE 
+            -} else {
+                form.formflex(action=`/articles/domestic/${user.totalArticles[i]._id}`)
+                    button.articleIndexButton(type="submit") VIEW ARTICLE 
+            -}
+            form.formflex(action=`/articles/${user.totalArticles[i]._id}?_method=DELETE` method="POST")
                 button.articleIndexButton(type="submit") DELETE ARTICLE
     -} } else {
         section.userArticles#initialArticle

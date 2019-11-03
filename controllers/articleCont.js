@@ -14,10 +14,17 @@ const isLoggedIn = (req, res, next) => {
     }
 }
 
-//index route
-
 router.get("/", isLoggedIn, async (req,res) => {
-    const user = await Auth.findOne({_id : req.session.userId}).populate("foreignArticles")
+    const foreignArticles = await Auth.findOne({_id : req.session.userId}).populate("foreignArticles")
+    const domesticArticles = await Auth.findOne({_id : req.session.userId}).populate("domesticArticles")
+    req.session.totalArticles = []
+    for (let i = 0; i < foreignArticles.foreignArticles.length; i++) {
+        req.session.totalArticles.push(foreignArticles.foreignArticles[i])
+    }
+    for (let i = 0; i < domesticArticles.domesticArticles.length; i++) {
+        req.session.totalArticles.push(domesticArticles.domesticArticles[i])
+    }
+    const user = req.session
     res.render("articles/articleIndex", {
        user
     })
@@ -29,6 +36,7 @@ router.post("/foreignarticle", async (req,res) => {
     req.session.isFirstDraft = true
     user = req.session
     const foreignArticle = {}
+    foreignArticle.isForeign = true
     foreignArticle.country = req.body.country
     foreignArticle.unitOfTime = [req.body.unitOfTime, req.body.unitOfTime2]
     foreignArticle.nouns = [req.body.noun, req.body.noun2, req.body.noun3, req.body.noun4, req.body.noun5, req.body.noun6, req.body.noun7, req.body.noun8, req.body.noun9]
@@ -54,6 +62,7 @@ router.post("/domesticarticle", async (req,res) => {
     req.session.isFirstDraft = true
     user = req.session
     const domesticArticle = {}
+    domesticArticle.isDomestic = true
     domesticArticle.nouns = [req.body.noun, req.body.noun2, req.body.noun3, req.body.noun4, req.body.noun5, req.body.noun6, req.body.noun7, req.body.noun8, req.body.noun9, req.body.noun10, req.body.noun11, req.body.noun12, req.body.noun13, req.body.noun14]
     domesticArticle.adjectives = [req.body.adjective, req.body.adjective2, req.body.adjective3, req.body.adjective4, req.body.adjective5]
     domesticArticle.verbs = [req.body.verb, req.body.verb2, req.body.verb3, req.body.verb4, req.body.verb5, req.body.verb6]
@@ -81,14 +90,25 @@ router.get("/new", (req,res) => {
     }
 })
 
-//show route
+//show routes
 
-router.get("/:id", async (req,res) => {
+router.get("/foreign/:id", async (req,res) => {
     const findUser = await Auth.findOne({"foreignArticles" : req.params.id}).populate({path: "foreignArticles", match : {_id: req.params.id}})
     const article = findUser.foreignArticles[0]
     req.session.isFirstDraft = false
     user = req.session
     res.render("articles/foreignArticleShow", {
+        article,
+        user
+      })
+})
+
+router.get("/domestic/:id", async (req,res) => {
+    const findUser = await Auth.findOne({"domesticArticles" : req.params.id}).populate({path: "domesticArticles", match : {_id: req.params.id}})
+    const article = findUser.domesticArticles[0]
+    req.session.isFirstDraft = false
+    user = req.session
+    res.render("articles/domesticArticleShow", {
         article,
         user
       })
@@ -113,9 +133,9 @@ router.put("/:id", async (req,res) => {
 //delete route
 
 router.delete("/:id", async (req,res) => {
-    const removePhoto = await Foreign.findByIdAndRemove(req.params.id)
-    const removeFromUserArray = await Auth.findOne({"foreignArticles" : req.params.id})
-    const removePicFromArray = await removeFromUserArray.foreignArticles.remove(req.params.id)
+    const removeArticles = await Foreign.findByIdAndRemove(req.params.id) || await Domestic.findByIdAndRemove(req.params.id)
+    const removeFromUserArray = await Auth.findOne({"foreignArticles" : req.params.id}) || await Auth.findOne({"domesticArticles" : req.params.id})
+    const removeArticleFromArray = await removeFromUserArray.foreignArticles.remove(req.params.id) || await removeFromUserArray.domesticArticles.remove(req.params.id)
     const saveUpdatedAuthArray = await removeFromUserArray.save()
     res.redirect("/articles")
 })

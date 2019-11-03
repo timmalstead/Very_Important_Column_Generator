@@ -1,6 +1,7 @@
 const mongoose = require("mongoose")
 
 const domesticArticle = new mongoose.Schema({
+    isDomestic : Boolean,
     title : String,
     nouns : [String],//14
     adjectives : [String],//5

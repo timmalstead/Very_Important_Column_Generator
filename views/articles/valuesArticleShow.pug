@@ -1,0 +1,26 @@
+include ../includes/head
+link(rel="stylesheet" href="/css/siteOpsAndArticles.css")
+main
+    nav.functionlinks
+        a(href="/auth/logout") Logout
+        -if (!user.isFirstDraft) {
+            a(href=`/articles/foreign/${article._id}/edit`) Edit Article//need to change route
+        -}
+    
+    article.articlewrapper
+        h1.articletitle=`${article.title}`
+        include ../includes/articleHeader
+        main.mainarticle
+            p=`This past week, three ${article.adjectives[0]} Americans bore witness to what is sure to be one of the defining ${article.nouns[0]} of our time. The first, of course, was ${article.importantFigure[0]}, leader of the ${article.adjectives[1]} ${article.nouns[1]} Group. The second, ${article.importantFigure[1]}, is second in command of the equally ${article.adjectives[2]} ${article.nouns[2]} Party. The third, and perhaps most ${article.adjectives[3]} was myself, Thomas L. Friedman.`
+
+            p=`Ask yourself, which of these three ${article.nouns[3]}s would you want ${article.verbs[0]}ing to your kids? What kind of ${article.nouns[4]} will we be leaving to those kids if we can't get it together to ${article.verbs[1]} or ${article.verbs[2]}? I can't say there's any option that makes me ${article.adjectives[4]}.`
+
+            p=`In the case of ${article.importantFigure[0]} and their cronies at the ${article.adjectives[1]} ${article.nouns[1]} Group, the answer is clear. We as a nation simply cannot allow them to ${article.verbs[3]} all over our ${article.nouns[5]} given right to ${article.verbs[4]} any longer. A stalwart defender of free ${article.verbs[5]} such as myself never says such a thing lightly, but this is the severity of the situation we find ourself in with the ${article.nouns[1]}s.`
+
+            p=`The situation with ${article.importantFigure[1]} is less cut and dry, and as such requires a ${article.adjectives[5]} metaphor. Say that someone came to your ${article.nouns[6]} and, without so much as a ${article.nouns[7]}, just started ${article.verbs[6]}ing all over the place. I'd wager most people would be pretty ${article.adjectives[6]}. So it is with the esteemed leader of the ${article.adjectives[2]} ${article.nouns[2]} Party.`
+
+            p=`If we fail to do this, I fear for the ${article.nouns[8]} of our ${article.nouns[9]}.`
+
+            p=`In the end, even I can't say if the rivalry between ${article.importantFigure[0]} and ${article.importantFigure[1]} will amount to ${article.nouns[10]} or stall out at the ${article.verbs[7]}ing stage. Before we find out however, I would urge you again to consider your ${article.adjectives[7]} kids and who YOU would want ${article.verbs[0]}ing to them. I can guarantee it isn't who ${article.importantFigure[0]} or ${article.importantFigure[1]} would choose.`
+
+    include ../includes/footer

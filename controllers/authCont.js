@@ -3,6 +3,7 @@ const router = express.Router()
 const Auth = require("../models/authModel")
 const Foreign = require("../models/foreignModel")
 const Domestic = require("../models/domesticModel")
+const Values = require("../models/valuesModel")
 const bcrypt = require("bcryptjs")
 
 //logout route
@@ -98,6 +99,7 @@ router.delete("/delete", async (req,res) => {
     const userToBeDeleted = await Auth.findById(req.session.userId)
     const deletedForeignArticles = await Foreign.deleteMany({_id : {$in : userToBeDeleted.foreignArticles}})
     const deletedDomesticArticles = await Domestic.deleteMany({_id : {$in : userToBeDeleted.domesticArticles}})
+    const deletedValuesArticles = await Values.deleteMany({_id : {$in : userToBeDeleted.valuesArticles}})
     const deletedUser = await Auth.findByIdAndRemove(req.session.userId)
     req.session.destroy()
     res.redirect("/")

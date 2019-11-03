@@ -12,7 +12,10 @@ main
                 h1=user.totalArticles[i].title
             -if (user.totalArticles[i].isForeign) {
                 form.formflex(action=`/articles/foreign/${user.totalArticles[i]._id}`)
-                    button.articleIndexButton(type="submit") VIEW ARTICLE 
+                    button.articleIndexButton(type="submit") VIEW ARTICLE
+            -} else if (user.totalArticles[i].isValues) {
+                form.formflex(action=`/articles/values/${user.totalArticles[i]._id}`)
+                    button.articleIndexButton(type="submit") VIEW ARTICLE
             -} else {
                 form.formflex(action=`/articles/domestic/${user.totalArticles[i]._id}`)
                     button.articleIndexButton(type="submit") VIEW ARTICLE 

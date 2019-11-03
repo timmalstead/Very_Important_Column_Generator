@@ -3,6 +3,7 @@ const router = express.Router()
 const Auth = require("../models/authModel")
 const Foreign = require("../models/foreignModel")
 const Domestic = require("../models/domesticModel")
+const Values = require("../models/valuesModel")
 
 
 const isLoggedIn = (req, res, next) => {
@@ -14,15 +15,21 @@ const isLoggedIn = (req, res, next) => {
     }
 }
 
+//index route
+
 router.get("/", isLoggedIn, async (req,res) => {
     const foreignArticles = await Auth.findOne({_id : req.session.userId}).populate("foreignArticles")
     const domesticArticles = await Auth.findOne({_id : req.session.userId}).populate("domesticArticles")
+    const valuesArticles = await Auth.findOne({_id : req.session.userId}).populate("valuesArticles")
     req.session.totalArticles = []
     for (let i = 0; i < foreignArticles.foreignArticles.length; i++) {
         req.session.totalArticles.push(foreignArticles.foreignArticles[i])
     }
     for (let i = 0; i < domesticArticles.domesticArticles.length; i++) {
         req.session.totalArticles.push(domesticArticles.domesticArticles[i])
+    }
+    for (let i = 0; i < valuesArticles.valuesArticles.length; i++) {
+        req.session.totalArticles.push(valuesArticles.valuesArticles[i])
     }
     const user = req.session
     res.render("articles/articleIndex", {
@@ -79,14 +86,36 @@ router.post("/domesticarticle", async (req,res) => {
     })
 })
 
+router.post("/valuesarticle", async (req,res) => {
+    req.session.isFirstDraft = true
+    user = req.session
+    const valuesArticle = {}
+    valuesArticle.isValues = true
+    valuesArticle.nouns = [req.body.noun, req.body.noun2, req.body.noun3, req.body.noun4, req.body.noun5, req.body.noun6, req.body.noun7, req.body.noun8, req.body.noun9, req.body.noun10, req.body.noun11]
+    valuesArticle.adjectives = [req.body.adjective, req.body.adjective2, req.body.adjective3, req.body.adjective4,req.body.adjective5, req.body.adjective6, req.body.adjective7, req.body.adjective8]
+    valuesArticle.verbs = [req.body.verb, req.body.verb2, req.body.verb3, req.body.verb4, req.body.verb5, req.body.verb6, req.body.verb7, req.body.verb8]
+    valuesArticle.importantFigure = [req.body.importantFigure, req.body.importantFigure2]
+    valuesArticle.title = req.body.title
+    const newArticle = await Values.create(valuesArticle)
+    const foundUser = await Auth.findById(req.session.userId)
+    foundUser.valuesArticles.push(newArticle._id)
+    foundUser.save()
+    res.render("articles/valuesArticleShow", {
+      article : valuesArticle,
+      user
+    })
+})
+
 //new route
 
 router.get("/new", (req,res) => {
-    const randomArticle = Math.floor(Math.random() * 2)
+    const randomArticle = Math.floor(Math.random() * 3)
     if (randomArticle === 0) {
         res.render("articles/foreignArticleNew")
-    } else {
+    } else if (randomArticle === 1) {
         res.render("articles/domesticArticleNew")
+    } else {
+        res.render("articles/valuesArticleNew")
     }
 })
 
@@ -109,6 +138,17 @@ router.get("/domestic/:id", async (req,res) => {
     req.session.isFirstDraft = false
     user = req.session
     res.render("articles/domesticArticleShow", {
+        article,
+        user
+      })
+})
+
+router.get("/values/:id", async (req,res) => {
+    const findUser = await Auth.findOne({"valuesArticles" : req.params.id}).populate({path: "valuesArticles", match : {_id: req.params.id}})
+    const article = findUser.valuesArticles[0]
+    req.session.isFirstDraft = false
+    user = req.session
+    res.render("articles/valuesArticleShow", {
         article,
         user
       })

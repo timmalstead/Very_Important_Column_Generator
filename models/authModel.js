@@ -10,6 +10,10 @@ const authSchema = new mongoose.Schema ({
     domesticArticles : [{
         type : mongoose.Schema.Types.ObjectId,
         ref : "Domestic"
+    }],
+    valuesArticles : [{
+        type : mongoose.Schema.Types.ObjectId,
+        ref : "Values"
     }]
 })
 

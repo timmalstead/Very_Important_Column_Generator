@@ -8,7 +8,7 @@ main
             img.tom(src="/images/thomas-l-friedman-thumbLarge.png" alt="Tom Himself")
         div.titles
             h1 Thomas L. Friedman
-            -const randomByline = Math.floor(Math.random() * 4)
+            -const randomByline = Math.floor(Math.random() * 5)
             case randomByline
                 when 0
                     h3 Virile, brilliant and correct in all things.
@@ -16,6 +16,8 @@ main
                     h3 Men want to be him, women and children also want to be him.
                 when 2
                     h3 Our greatest natural resource.
+                when 4
+                    h3 Simple solutions for a complex world.
                 default
                     h3 Not just an opinion column, the correct opinion column.
     section.indica

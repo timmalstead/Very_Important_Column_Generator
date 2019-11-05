@@ -36,5 +36,5 @@ app.get("/", (req,res) => {
 // const port = 3000
 
 app.listen(PORT, () => {
-    console.log(`Server up and running on ${port}`)
+    console.log(`Server up and running on ${PORT}`)
 })

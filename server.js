@@ -3,6 +3,10 @@ const app = express()
 const methodOverride = require("method-override")
 const session = require("express-session")
 
+require("dotenv").config()
+
+const PORT = process.env.PORT
+
 require("./db/db")
 
 app.use(session({
@@ -29,8 +33,8 @@ app.get("/", (req,res) => {
     })
 })
 
-const port = 3000
+// const port = 3000
 
-app.listen(port, () => {
+app.listen(PORT, () => {
     console.log(`Server up and running on ${port}`)
 })

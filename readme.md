@@ -1,6 +1,6 @@
 ## The Very Important Thomas Friedman Column Generator
 
-Link to use ===>
+Link to use ===> https://veryimportantcolumngenerator.herokuapp.com/
 
 ###### Version 1.0
 

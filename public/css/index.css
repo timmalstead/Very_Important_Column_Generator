@@ -137,7 +137,7 @@ p {
     }
 }
 
-@media (max-width: 850px) {
+@media (max-width: 950px) {
     .titleheader {
         grid-template-columns: 25% 50% 25%;
     }
@@ -149,8 +149,22 @@ p {
     }
 }
 
-@media (max-width: 650px) {
+@media (max-width: 700px) {
     .titleheader {
         grid-template-columns: 40% 50% 10%;
+    }
+}
+
+@media (max-width: 630px) {
+    .titleheader {
+        grid-template-columns: 50% 50% 0%;
+    }
+    
+    .titleheader > .titles {
+        transform: scale(.8);
+    }
+
+    .inbetween {
+        border-top: none;
     }
 }

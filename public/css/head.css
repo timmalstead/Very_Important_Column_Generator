@@ -128,7 +128,7 @@ input {
 }
 
 .inverted {
-    filter: invert(100%)
+    filter: invert(90%)
 }
 
 @media (max-width:800px) {

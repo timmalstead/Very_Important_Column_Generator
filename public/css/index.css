@@ -102,7 +102,7 @@ p {
 }
 
 .dark {
-    background-color: black;
+    background-color: #191919;
 }
 
 @media (max-width: 1300px) {

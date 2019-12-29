@@ -1,6 +1,6 @@
 ## The Very Important Thomas Friedman Column Generator
 
-Link to use ===> https://veryimportantcolumngenerator.herokuapp.com/
+Link to [The_Very_Important_Thomas_Friedman_Column_Generator](https://veryimportantcolumngenerator.herokuapp.com/)
 
 ###### Version 1.0
 
@@ -61,4 +61,3 @@ Thanks to my instructors Michael Christenson, Michael Siller and James Haff for 
 Thanks to Aaron Ryder for help with the light and dark mode toggle and to Ben Gomez for inspiring my random words function.
 
 Finally, thanks to you for taking the time to read this and to use my site. If you like my work or have a suggestion for how I can improve it, please drop me a line.
-

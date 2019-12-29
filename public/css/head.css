@@ -1,226 +1,225 @@
 body {
-    margin: 0;
-    display: flex;
-    background-color: white;
-    justify-content: center;
+  margin: 0;
+  display: flex;
+  background-color: white;
+  justify-content: center;
 }
 .container {
-    position: absolute;
-    top:0;
-    left: 0;
-    display: flex;
-    flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
 }
 .navbar {
-    width: 100vw;
-    background-color: white;
-    border-bottom: .1em solid #ebebeb;
-    box-shadow: 0 .05em .2em #ebebeb;
-    display: flex;
-    justify-content: center;
+  width: 100vw;
+  background-color: white;
+  border-bottom: 0.1em solid #ebebeb;
+  box-shadow: 0 0.05em 0.2em #ebebeb;
+  display: flex;
+  justify-content: center;
 }
 
 header {
-    width:90%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .hamburgermenu {
-    width: 2em;
-    height: 2em;
-    display: none;
+  width: 2em;
+  height: 2em;
+  display: none;
 }
 
 .logo {
-    width: 18em;
-    margin: .5em;
+  width: 18em;
+  margin: 0.5em;
 }
 
 button {
-    outline: none;
-    cursor: pointer;
-    background-color: #567b95;
-    border: 1em solid #567b95;
-    border-radius: 5px;
-    margin: 0 .5em;
-    color: white;
-    font-family: Helvetica, Arial, sans-serif;
-    font-weight: 700;
+  outline: none;
+  cursor: pointer;
+  background-color: #567b95;
+  border: 1em solid #567b95;
+  border-radius: 5px;
+  margin: 0 0.5em;
+  color: white;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 700;
 }
 
 button:hover {
-    background-color: #326891;
-    border: 1em solid #326891;
+  background-color: #326891;
+  border: 1em solid #326891;
 }
 
 nav {
-    display: flex;
+  display: flex;
 }
 
 #loginbutton {
-    width: 7em;
+  width: 7em;
 }
 
 .modalbutton {
-    width: 50%;
-    margin: auto 0;
+  width: 50%;
+  margin: auto 0;
 }
 
 .registerboxes {
-    margin: 0 5em;
-    align-self: flex-end;
-    width:14em;
+  margin: 0 5em;
+  align-self: flex-end;
+  width: 14em;
 }
 
 .loginforms {
-    background-color: white;
-    align-self: flex-end;
-    width:14em;
-    height: 8em;
-    border-width:  0 .1em .1em .1em;
-    border-style: solid;
-    border-color: #ebebeb;
-    box-shadow: 0 .1em .2em #ebebeb;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    padding: .25em;
+  background-color: white;
+  align-self: flex-end;
+  width: 14em;
+  height: 8em;
+  border-width: 0 0.1em 0.1em 0.1em;
+  border-style: solid;
+  border-color: #ebebeb;
+  box-shadow: 0 0.1em 0.2em #ebebeb;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.25em;
 }
 
 input {
-    margin: .5em;
-    height: 2em;
-    border-radius: 5px;
-    outline-color: #999;
+  margin: 0.5em;
+  height: 2em;
+  border-radius: 5px;
+  outline-color: #999;
 }
 
 .sidemenu {
-    display: none;
+  display: none;
 }
 
 #registerfield {
-    position: absolute;
-    top: -20em;
-    transition: all .50s ease-in-out;
-    z-index: 1;
+  position: absolute;
+  top: -20em;
+  transition: all 0.5s ease-in-out;
+  z-index: 1;
 }
 
 #registerfield.show {
-    top: 3.3em;
+  top: 3.3em;
 }
 
 #getregisterfield {
-    border: none;
-    margin: .3em 0 0 0;
+  border: none;
+  margin: 0.3em 0 0 0;
 }
 
 #loginfield {
-    position: absolute;
-    top: -20em;
-    transition: all .50s ease-in-out;
+  position: absolute;
+  top: -20em;
+  transition: all 0.5s ease-in-out;
 }
 
 #loginfield.show {
-    top: 3.3em;
+  top: 3.3em;
 }
 
 .inverted {
-    filter: invert(90%)
+  filter: invert(90%);
 }
 
-@media (max-width:800px) {
-    .desktopbuttons {
-        display: none;
-    }
+@media (max-width: 800px) {
+  .desktopbuttons {
+    display: none;
+  }
 
-    .hamburgermenu {
-        display: block;
-        margin: 0 0 .7em 0;
-        cursor: pointer;
-    }
+  .hamburgermenu {
+    display: block;
+    margin: 0 0 0.7em 0;
+    cursor: pointer;
+  }
 
-    header {
-        justify-content: space-evenly;
-    }
-    .logo {
-        min-height: 3em;
-    }
-    .sidemenu {
-        width:100vw;
-        min-height: 125vh;
-        max-height: 200vh;
-        position: absolute;
-        top: 4.5rem;
-        left:-60em;
-        display: block;
-        text-align: center;
-        background-color: #ffffff8c;
-        backdrop-filter: blur(.25em);
-        transition: all .50s ease-in-out;
-        z-index : 1;
-    }
+  header {
+    justify-content: space-evenly;
+  }
+  .logo {
+    min-height: 3em;
+  }
+  .sidemenu {
+    width: 100vw;
+    min-height: 125vh;
+    max-height: 200vh;
+    position: absolute;
+    top: 4.5rem;
+    left: -60em;
+    display: block;
+    text-align: center;
+    background-color: #ffffff8c;
+    backdrop-filter: blur(0.25em);
+    transition: all 0.5s ease-in-out;
+    z-index: 1;
+  }
 
-    .sidemenu.show {
-        left: 0;
-    }
+  .sidemenu.show {
+    left: 0;
+  }
 
-    .headerbutton {
-        background-color: #567b95;
-        border: none;
-        margin: 0 .5em;
-        min-width: 10em;
-        min-height: 3em;
-        font-size: 2em;
-        margin: 3em 0 0 0;
-    }
+  .headerbutton {
+    background-color: #567b95;
+    border: none;
+    margin: 0 0.5em;
+    min-width: 10em;
+    min-height: 3em;
+    font-size: 2em;
+    margin: 3em 0 0 0;
+  }
 
-    .headerbutton:hover {
-        border: none;
-    }
+  .headerbutton:hover {
+    border: none;
+  }
 
-    .registerboxes {
-        align-self: center;
-        display: flex;
-        justify-content: center;
-    }
+  .registerboxes {
+    align-self: center;
+    display: flex;
+    justify-content: center;
+  }
 
-    .loginforms {
-        background-color: white;
-        width:22em;
-        height: 38em;
-        border: .1em solid #ebebeb;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: .25em;
-        box-shadow: none;
+  .loginforms {
+    background-color: white;
+    width: 22em;
+    height: 38em;
+    border: 0.1em solid #ebebeb;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0.25em;
+    box-shadow: none;
+  }
 
-    }
+  #loginfield {
+    z-index: 2;
+    top: -100em;
+    transition: all 0.75s ease-in-out;
+  }
 
-    #loginfield {
-        z-index: 2;
-        top: -100em;
-        transition: all .75s ease-in-out;
-    }
+  #registerfield {
+    z-index: 3;
+    top: -100em;
+    transition: all 0.75s ease-in-out;
+  }
 
-    #registerfield {
-        z-index: 3;
-        top: -100em;
-        transition: all .75s ease-in-out;
-    }
+  #getregisterfield {
+    font-size: 2em;
+    margin: 0 0 2em 0;
+  }
 
-    #getregisterfield {
-        font-size: 2em;
-        margin: 0 0 2em 0;
-    }
-
-    .forminput {
-        margin: 1em 0 0 0;
-        min-width: 5em;
-        font-size: 2em;
-    }
+  .forminput {
+    margin: 1em 0 0 0;
+    min-width: 5em;
+    font-size: 2em;
+  }
 }

@@ -1,39 +1,42 @@
 body {
-    background-color: white;
+  background-color: white;
 }
 
 main {
-    width: 95%;
-    margin: 4.5rem 0 0 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: white;
+  width: 95%;
+  margin: 4.5rem 0 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: white;
 }
 
-.functionlinks, .newarticleform, .centerform, h3 {
-    align-self: center;
+.functionlinks,
+.newarticleform,
+.centerform,
+h3 {
+  align-self: center;
 }
 
 .centerform {
-    width:80%;
-    display: grid;
-    grid-template-columns: 33% 33% 33%;
-    grid-template-areas:
+  width: 80%;
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  grid-template-areas:
     "input input input"
-    ". changeInfo ."
-    ;
+    ". changeInfo .";
 }
 
-#changeInfo, #delete {
-    grid-area: changeInfo;
-    margin: .5em 0;
+#changeInfo,
+#delete {
+  grid-area: changeInfo;
+  margin: 0.5em 0;
 }
 
 .newarticleform {
-    display: grid;
-    grid-template-columns: 33% 33% 33%;
-    grid-template-areas:
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  grid-template-areas:
     "input input input"
     "input input input"
     "input input input"
@@ -44,113 +47,112 @@ main {
     "input input input"
     "input input input"
     "input input input"
-    ". bottombutton ."
-    ;
-    width: 80%;
+    ". bottombutton .";
+  width: 80%;
 }
 
 .userArticles {
-    justify-content: inherit;
-    flex-grow: 1;
-    display: grid;
-    grid-template-columns: auto auto 12% 12%;
-    box-shadow: -.2vw .3vh 2px #999;
+  justify-content: inherit;
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: auto auto 12% 12%;
+  box-shadow: -0.2vw 0.3vh 2px #999;
 }
 
 a {
-    font-style: italic;
-    color: #999;
-    text-decoration: none;
-    margin: 0 .5em;
+  font-style: italic;
+  color: #999;
+  text-decoration: none;
+  margin: 0 0.5em;
 }
 
 h1 {
-    font-size: 3em;
-    font-weight: 500;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    color: #333;
+  font-size: 3em;
+  font-weight: 500;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: #333;
 }
 
 h3 {
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    color: #333;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: #333;
 }
 
 .bottombutton {
-    grid-area: bottombutton;
+  grid-area: bottombutton;
 }
 
 article {
-    width:50%;
-    align-self: center;
-    color: #333;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size:1.3em;
-    display: inherit;
-    flex-direction: inherit;
+  width: 50%;
+  align-self: center;
+  color: #333;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 1.3em;
+  display: inherit;
+  flex-direction: inherit;
 }
 
 p {
-    text-indent: 3em;
+  text-indent: 3em;
 }
 
 .mainarticle {
-    margin:5em 0 0 0;
+  margin: 5em 0 0 0;
 }
 
 .articletitle {
-    align-self: center;
+  align-self: center;
 }
 
 .formflex {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .articleIndexButton {
-    height: initial;
+  height: initial;
 }
 
 .newArticleTag {
-    color: #999;
+  color: #999;
 }
 
 #initialArticle {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .dark {
-    background-color: #191919;
+  background-color: #191919;
 }
 
 @media (max-width: 800px) {
   .articlewrapper {
-      width: 80%;
+    width: 80%;
   }
 }
 
 @media (max-width: 1300px) {
-    .userArticles {
+  .userArticles {
     grid-template-columns: auto auto 15% 15%;
-    }
+  }
 }
 
 @media (max-width: 1000px) {
-    .userArticles {
+  .userArticles {
     grid-template-columns: auto auto 17% 17%;
-    }
+  }
 }
 
 @media (max-width: 900px) {
-    .userArticles {
+  .userArticles {
     grid-template-columns: auto auto 21% 21%;
-    }
+  }
 }
 
 @media (max-width: 750px) {
-    .userArticles {
+  .userArticles {
     grid-template-columns: auto auto 25% 25%;
-    }
+  }
 }

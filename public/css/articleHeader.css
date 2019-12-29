@@ -1,114 +1,112 @@
 .articleHeader {
-    display: grid;
-    width:100%;
-    grid-template-columns: 35% 65%;
-    grid-template-areas: "figure .titles";
-    color: #333;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    height: 5vh;
-    margin: -2em 0 5em 0;
+  display: grid;
+  width: 100%;
+  grid-template-columns: 35% 65%;
+  grid-template-areas: "figure .titles";
+  color: #333;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  height: 5vh;
+  margin: -2em 0 5em 0;
 }
 
 .author {
-    font-family: inherit;
-    font-size: 2em;
-    font-weight: 200;
-    position: relative;
-    top: .6em;
+  font-family: inherit;
+  font-size: 2em;
+  font-weight: 200;
+  position: relative;
+  top: 0.6em;
 }
 
 .byline {
-    color: #999;
-    font-family: inherit;
-    font-size: 1.3em;
-    font-weight: 100;
-    position: relative;
-    top:-.6em;
+  color: #999;
+  font-family: inherit;
+  font-size: 1.3em;
+  font-weight: 100;
+  position: relative;
+  top: -0.6em;
 }
 
 @media (max-width: 1200px) {
-    .articleHeader {
-        grid-template-columns: 40% 60%;
-    }
+  .articleHeader {
+    grid-template-columns: 40% 60%;
+  }
 
-    .author {
-        font-size: 1.8em;
-    }
-    
-    .byline {
-        font-size: 1.1em;
-    }
+  .author {
+    font-size: 1.8em;
+  }
+
+  .byline {
+    font-size: 1.1em;
+  }
 }
 
 @media (max-width: 1100px) {
-    .articleHeader {
-        grid-template-columns: 45% 55%;
-    }
+  .articleHeader {
+    grid-template-columns: 45% 55%;
+  }
 
-    .author {
-        font-size: 1.6em;
-    }
-    
-    .byline {
-        font-size: .9em;
-    }
+  .author {
+    font-size: 1.6em;
+  }
+
+  .byline {
+    font-size: 0.9em;
+  }
 }
 
 @media (max-width: 900px) {
-    .articleHeader {
-        grid-template-columns: 50% 50%;
-    }
+  .articleHeader {
+    grid-template-columns: 50% 50%;
+  }
 
-    .author {
-        font-size: 1.5em;
-    }
-    
-    .byline {
-        font-size: .8em;
-    }
+  .author {
+    font-size: 1.5em;
+  }
+
+  .byline {
+    font-size: 0.8em;
+  }
 }
 
 @media (max-width: 900px) {
-    .articleHeader {
-        grid-template-columns: 55% 45%;
-    }
+  .articleHeader {
+    grid-template-columns: 55% 45%;
+  }
 }
 
 @media (max-width: 750px) {
-    .articleHeader {
-        grid-template-columns: 60% 40%;
-    }
+  .articleHeader {
+    grid-template-columns: 60% 40%;
+  }
 
-    .author {
-        font-size: 1.3em;
-    }
-    
-    .byline {
-        font-size: .9em;
-    }
+  .author {
+    font-size: 1.3em;
+  }
+
+  .byline {
+    font-size: 0.9em;
+  }
 }
 
 @media (max-width: 750px) {
-    .articleHeader {
-        grid-template-columns: 50% 50%;
-        grid-template-rows: 50% 50%;
-        grid-template-areas: 
-        "thomas thomas"
-        "titles titles"
-        ;
-    }
+  .articleHeader {
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
+    grid-template-areas:
+      "thomas thomas"
+      "titles titles";
+  }
 
+  .titles {
+    grid-area: titles;
+    margin: 7em 0;
+  }
 
-    .titles {
-        grid-area: titles;
-        margin: 7em 0;
-    }
+  .author {
+    font-size: 1em;
+  }
 
-    .author {
-        font-size: 1em;
-    }
-    
-    .byline {
-        font-size: .9em;
-    }
+  .byline {
+    font-size: 0.9em;
+  }
 }

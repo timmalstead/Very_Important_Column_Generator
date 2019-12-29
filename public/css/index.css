@@ -1,170 +1,171 @@
 main {
-    width: 95%;
-    margin: 4.5rem 0 0 0;
-    display: flex;
-    flex-flow: column wrap;
-    background-color: white;
+  width: 95%;
+  margin: 4.5rem 0 0 0;
+  display: flex;
+  flex-flow: column wrap;
+  background-color: white;
 }
 
 .titleheader {
-    display: grid;
-    width:100%;
-    grid-template-columns: 15% 40% 45%;
-    grid-template-areas: "figure .titles .";
-    color: #333;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    height: 5vh;
+  display: grid;
+  width: 100%;
+  grid-template-columns: 15% 40% 45%;
+  grid-template-areas: "figure .titles .";
+  color: #333;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  height: 5vh;
 }
 
 figure {
-    transform: scale(.8);
-    display: block;
+  transform: scale(0.8);
+  display: block;
 }
 
 figcaption {
-    font-family: inherit;
-    color: inherit;
-    font-size: 1.5em;
-    font-weight: 300;
-    line-height: 1.5em;
+  font-family: inherit;
+  color: inherit;
+  font-size: 1.5em;
+  font-weight: 300;
+  line-height: 1.5em;
 }
 
 .titles {
-    display: flex;
-    flex-direction: column;
-    flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
 }
 
 h1 {
-    font-family: inherit;
-    font-size: 3em;
-    font-weight: 200;
-    position: relative;
-    top: .6em;
+  font-family: inherit;
+  font-size: 3em;
+  font-weight: 200;
+  position: relative;
+  top: 0.6em;
 }
 
 h3 {
-    color: #999;
-    font-family: inherit;
-    font-size: 1.3em;
-    font-weight: 100;
-    position: relative;
-    top:-.6em;
+  color: #999;
+  font-family: inherit;
+  font-size: 1.3em;
+  font-weight: 100;
+  position: relative;
+  top: -0.6em;
 }
 
-.indica, .maingrid {
-    width: 92.5%;
-    margin: 0 auto;
+.indica,
+.maingrid {
+  width: 92.5%;
+  margin: 0 auto;
 }
 
 .inbetween {
-    margin: 12rem 0 0 0;
-    border-top: .1em solid #333;
-    height: 2.2em;
-    border-bottom: .1em solid #ebebeb;
+  margin: 12rem 0 0 0;
+  border-top: 0.1em solid #333;
+  height: 2.2em;
+  border-bottom: 0.1em solid #ebebeb;
 }
 
 .tab {
-    border-width: .1em .1em 0 .1em;
-    border-style: solid;
-    border-color: #ebebeb;
-    border-radius: 5px;
-    background-color: white;
-    height: 2.7em;
-    width:8em;
-    position: relative;
-    top:-2.7em;
-    left:1em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 -.05em .2em #ebebeb8e;
+  border-width: 0.1em 0.1em 0 0.1em;
+  border-style: solid;
+  border-color: #ebebeb;
+  border-radius: 5px;
+  background-color: white;
+  height: 2.7em;
+  width: 8em;
+  position: relative;
+  top: -2.7em;
+  left: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 -0.05em 0.2em #ebebeb8e;
 }
 
 h4 {
-    font-family: Helvetica, Arial, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
 }
 
 .maingrid {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 p {
-    width:inherit;
-    align-self: center;
-    color: #333;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size:1.3em;
-    text-indent: 3em;
+  width: inherit;
+  align-self: center;
+  color: #333;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 1.3em;
+  text-indent: 3em;
 }
 
 .dark {
-    background-color: #191919;
+  background-color: #191919;
 }
 
 @media (max-width: 1300px) {
-    .titleheader {
-        grid-template-columns: 17% 42% 41%;
-    }
-    h1 {
-        font-size: 2.8em;
-    }
-    
-    h3 {
-        font-size: 1.1em;
-    }
+  .titleheader {
+    grid-template-columns: 17% 42% 41%;
+  }
+  h1 {
+    font-size: 2.8em;
+  }
+
+  h3 {
+    font-size: 1.1em;
+  }
 }
 
 @media (max-width: 1300px) {
-    .titleheader {
-        grid-template-columns: 19% 44% 37%;
-    }
-    h1 {
-        font-size: 2.6em;
-    }
-    
-    h3 {
-        font-size: .9em;
-    }
+  .titleheader {
+    grid-template-columns: 19% 44% 37%;
+  }
+  h1 {
+    font-size: 2.6em;
+  }
+
+  h3 {
+    font-size: 0.9em;
+  }
 }
 
 @media (max-width: 1000px) {
-    .titleheader {
-        grid-template-columns: 22% 47% 31%;
-    }
+  .titleheader {
+    grid-template-columns: 22% 47% 31%;
+  }
 }
 
 @media (max-width: 950px) {
-    .titleheader {
-        grid-template-columns: 25% 50% 25%;
-    }
+  .titleheader {
+    grid-template-columns: 25% 50% 25%;
+  }
 }
 
 @media (max-width: 850px) {
-    .titleheader {
-        grid-template-columns: 28% 53% 19%;
-    }
+  .titleheader {
+    grid-template-columns: 28% 53% 19%;
+  }
 }
 
 @media (max-width: 700px) {
-    .titleheader {
-        grid-template-columns: 40% 50% 10%;
-    }
+  .titleheader {
+    grid-template-columns: 40% 50% 10%;
+  }
 }
 
 @media (max-width: 630px) {
-    .titleheader {
-        grid-template-columns: 50% 50% 0%;
-    }
-    
-    .titleheader > .titles {
-        transform: scale(.8);
-    }
+  .titleheader {
+    grid-template-columns: 50% 50% 0%;
+  }
 
-    .inbetween {
-        border-top: none;
-    }
+  .titleheader > .titles {
+    transform: scale(0.8);
+  }
+
+  .inbetween {
+    border-top: none;
+  }
 }
